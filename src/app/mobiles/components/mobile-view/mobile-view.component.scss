@@ -1,0 +1,23 @@
+#mobile-content-view {
+  padding: 3rem;
+  .mobile-view {
+    padding-right: 23rem;
+    h4 {
+      margin: 0% 0% 2%;
+    }
+    #mobile-rating {
+      margin-top: 0.5%;
+    }
+    .rating-star {
+      padding: 0.3rem;
+      background: #388e3c;
+      border-radius: 4px;
+      small {
+        color: #fff;
+      }
+    }
+    .assured-img {
+      width: 4rem;
+    }
+  }
+}

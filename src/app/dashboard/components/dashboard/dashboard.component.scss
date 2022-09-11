@@ -1,0 +1,90 @@
+@import "../../../color.scss";
+.wrapper {
+  margin-top: 2rem;
+}
+.revenue-report {
+  display: flex;
+  justify-content: space-between;
+}
+.card-revenue {
+  .dashboard {
+    margin: 3rem 0rem 0rem 0rem;
+  }
+  .card-revenue-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    h4 {
+      margin: 2% 0% 0% 3%;
+    }
+  }
+}
+
+.card-sales {
+  .total-sales {
+    margin: 0rem 0rem 0.8rem 0rem;
+    .card-sales-title {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      h4 {
+        margin: 1% 0;
+      }
+    }
+    .sales-tarcker {
+      padding: 0 0 0 5rem;
+    }
+  }
+  .dropdown-content {
+    min-width: 0%;
+    transform: translate(-12px, 46px) !important;
+  }
+  .sales-dropdown {
+    button {
+      margin: 0px 4px 0px;
+    }
+  }
+}
+.earnings-card {
+  .total-earnings {
+    margin: 3rem 0rem 0rem 0rem;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .card-sales {
+    .card {
+      width: 87%;
+    }
+  }
+}
+@media screen and (max-width: 1038px) {
+  .card-sales {
+    .card {
+      width: 90%;
+    }
+  }
+}
+@media screen and (max-width: 1038px) {
+  .card-sales {
+    .card {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 990px) {
+  .card-revenue {
+    .card {
+      margin: 3rem 0rem 0rem 0rem;
+    }
+    text-align: center;
+    width: 100%;
+  }
+  .card-sales {
+    text-align: center;
+    width: 100%;
+    .card {
+      margin: 3rem 0rem 0rem 0rem;
+    }
+  }
+}

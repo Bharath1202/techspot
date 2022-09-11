@@ -1,0 +1,32 @@
+<div class="login">
+  <div class="content">
+    <div class="card login-screen">
+      <div class="card-header">
+        <h2>Login</h2>
+      </div>
+      <div class="card-body">
+        <div class="loginForm">
+          <div class="row">
+            <form #loginForm="ngForm" (ngSubmit)="(loginForm.form.valid) && submit()">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" placeholder="Email" minlength="2" maxlength="50"
+                  [(ngModel)]="login.email" name="email" />
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" placeholder="Password" minlength="2" maxlength="20"
+                  [(ngModel)]="login.password" name="password" />
+              </div>
+              <div class="button">
+                <button type="submit" class="btn">
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

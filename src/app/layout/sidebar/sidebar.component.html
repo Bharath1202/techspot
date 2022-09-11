@@ -1,0 +1,65 @@
+<mat-nav-list class="pt-0">
+  <div class="sideNav">
+    <div class="sideNav-container">
+      <div class="logo-container">
+        <div class="logo">
+          <img src="../../../assets/images/logo/TS.png" class="center" />
+        </div>
+        <div class="logo-content">
+          <h4>TECH SPOT</h4>
+        </div>
+      </div>
+      <div class="sideNav">
+        <ul class="sideNav-content">
+          <li class="content-list">
+            <div class="dashboard mb-4" [routerLink]="['/home/dashboard']">
+              <i class="fas fa-gauge"></i>
+              <h3>Dashboard</h3>
+            </div>
+          </li>
+          <li class="dropdown">
+            <div class="dropdown">
+              <div (click)="toShow()">
+                <div class="title">
+                  <div>
+                    <i class="fas fa-mobile"></i>
+                  </div>
+                  <div>
+                    <h3>Electronics</h3>
+                  </div>
+                  <div>
+                    <i
+                      class="fa fa-chevron-right class"
+                      [ngClass]="class == 1 ? 'rotate' : 'backTo'"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-content" *ngIf="showElectronics">
+                <div class="electronics-list">
+                  <a>
+                    <div [routerLink]="['/home/mobiles']">
+                      <h4>Mobiles</h4>
+                    </div>
+                  </a>
+                  <a>
+                    <div [routerLink]="['/routePath']">
+                      <h4>Laptops</h4>
+                    </div>
+                  </a>
+                  <a>
+                    <div [routerLink]="['/routePath']">
+                      <h4>Gagets</h4>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</mat-nav-list>
+
+<!-- <h4>end</h4> -->

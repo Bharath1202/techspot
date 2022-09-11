@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  #cart-items {
+    margin-top: 8%;
+    h6 {
+      font-size: smaller;
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    button:focus {
+      box-shadow: none;
+    }
+  }
+}
