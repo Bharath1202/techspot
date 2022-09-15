@@ -11,15 +11,15 @@ import { AuthService } from '../../service/auth.service';
 })
 export class LoginComponent implements OnInit {
   public login: Login = new Login();
-  constructor(private router: Router,private authService:AuthService) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   submit() {
-    // this.authService.postlogin(this.login).subscribe((res:any)=>{
-    //   console.log(res);
-    // },(error)=>{
-    //   console.log(error);
-    // })
-    this.router.navigateByUrl('/home/dashboard');
+    this.authService.postlogin(this.login).subscribe((res: any) => {
+      console.log(res);
+      this.router.navigateByUrl('/home/dashboard');
+    }, (error) => {
+      console.log(error);
+    })
   }
 }

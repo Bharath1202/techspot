@@ -1,18 +1,27 @@
 @import "../../../color.scss";
 .login {
-  height: 100vh;
   color: $White;
   background: linear-gradient(#fc466b, #3f5efb);
   .content {
     display: flex;
     justify-content: center;
-    padding: 8rem;
+    padding: 8.27rem;
   }
   .login-screen {
     background-color: rgba(30, 39, 39, 0.3);
     width: 24rem;
     height: 24rem;
-    box-shadow: 0px 10px 25px -8px;
+    .form-group{
+      input{
+        background-color: transparent;
+        color: #fff;
+      }
+    }
+  }
+  .form-group{
+    input:focus{
+     box-shadow: none;
+    }
   }
   .card-header {
     text-align: center;

@@ -14,7 +14,6 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { InterceptorInterceptor } from './auth/helpers/interceptor.interceptor';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,4 +42,4 @@ import { InterceptorInterceptor } from './auth/helpers/interceptor.interceptor';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
