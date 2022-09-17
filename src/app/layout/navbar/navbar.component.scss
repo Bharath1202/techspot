@@ -2,13 +2,17 @@
   max-width: 96%;
   .row {
     position: relative;
-    .card {
+    .navbar {
       margin-top: 2%;
       border-radius: 7px;
       box-shadow: 1px 1px 10px -3px;
-      .card-body {
+      .navbar-content {
         display: flex;
         justify-content: end;
+        .user-icon-image{
+          width: 2rem;
+          height: 2rem;
+        }
         button {
           border: none;
         }
