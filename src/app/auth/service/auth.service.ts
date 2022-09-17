@@ -9,12 +9,17 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   private baseUrl = environment.apiUrl + '/login'
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  postlogin(data){
-    return this.httpClient.post<any>(`${this.baseUrl}`,data).pipe(map(user=>{
+  postlogin(data) {
+    return this.httpClient.post<any>(`${this.baseUrl}`, data).pipe(map(user => {
       console.log(user);
-      
+      if (user?.result) {
+        let userDetail = user?.result?.userDetails
+        let loginType = user?.result?.loginType
+        localStorage.setItem('userDetail', JSON.stringify(userDetail))
+        localStorage.setItem('loginType', loginType)
+      }
     }))
   }
 }

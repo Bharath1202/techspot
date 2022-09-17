@@ -11,7 +11,7 @@
       </div>
       <div class="sideNav">
         <ul class="sideNav-content">
-          <li class="content-list">
+          <li class="content-list" *ngIf="loginType == 'admin'">
             <div class="dashboard mb-4" [routerLink]="['/home/dashboard']">
               <i class="fas fa-gauge"></i>
               <h3>Dashboard</h3>
@@ -28,10 +28,7 @@
                     <h3>Electronics</h3>
                   </div>
                   <div>
-                    <i
-                      class="fa fa-chevron-right class"
-                      [ngClass]="class == 1 ? 'rotate' : 'backTo'"
-                    ></i>
+                    <i class="fa fa-chevron-right class" [ngClass]="class == 1 ? 'rotate' : 'backTo'"></i>
                   </div>
                 </div>
               </div>

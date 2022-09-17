@@ -26,7 +26,11 @@ export class DashboardComponent implements OnInit {
   public salesChartOptions;
   public data;
   public total;
+  public loginType;
   ngOnInit(): void {
+    this.loginType = localStorage.getItem('loginType')
+    console.log(this.loginType);
+
     this.totalEarnings();
   }
 

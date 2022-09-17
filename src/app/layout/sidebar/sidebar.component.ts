@@ -13,12 +13,16 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class SidebarComponent implements OnInit {
+  public loginType
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
   public class = 0;
   public showElectronics = false;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginType = localStorage.getItem('loginType')
+
+  }
   toShow() {
     this.showElectronics = !this.showElectronics;
     if (this.class == 0) {
@@ -27,5 +31,5 @@ export class SidebarComponent implements OnInit {
       this.class = 0;
     }
   }
-  toggleSideBar() {}
+  toggleSideBar() { }
 }
