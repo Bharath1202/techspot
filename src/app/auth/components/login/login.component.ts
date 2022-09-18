@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { Login } from '../../model/login';
 import { AuthService } from '../../service/auth.service';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public passwordTextType: boolean;
   public submitted = false;
   public login: Login = new Login();
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private toastr: NgToastService) { }
 
   ngOnInit(): void {
     this.loginType = localStorage.getItem('loginType')
@@ -22,12 +23,14 @@ export class LoginComponent implements OnInit {
   submit() {
     this.authService.postlogin(this.login).subscribe((res: any) => {
       if (this.loginType == 'admin') {
+        this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
         this.router.navigateByUrl('/home/dashboard');
       } else {
-        this.router.navigateByUrl('/home/mobiles/mobileList');
+        this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
+        this.router.navigateByUrl('/home/mobiles');
       }
     }, (error) => {
-      console.log(error);
+      this.toastr.error({ detail: "Error Message", summary: error.error.message, duration: 2000 })
     })
   }
   togglePasswordTextType() {

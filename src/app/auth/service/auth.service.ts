@@ -8,7 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private baseUrl = environment.apiUrl + '/login'
+  private baseUrl = environment.apiUrl + '/login';
+  private register = environment.apiUrl + '/register';
   constructor(private httpClient: HttpClient) { }
 
   postlogin(data) {
@@ -21,5 +22,8 @@ export class AuthService {
         localStorage.setItem('loginType', loginType)
       }
     }))
+  }
+  saveUser(data) {
+    return this.httpClient.post(`${this.register}`, data)
   }
 }

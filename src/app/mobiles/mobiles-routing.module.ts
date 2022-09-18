@@ -5,7 +5,7 @@ import { MobileViewComponent } from './components/mobile-view/mobile-view.compon
 
 const routes: Routes = [
   {
-    path: 'mobileList',
+    path: '',
     component: MobileListComponent,
   },
   {

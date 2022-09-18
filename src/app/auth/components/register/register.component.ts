@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+import { Register } from '../../model/register';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +11,32 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent implements OnInit {
-  constructor() {}
+  public register: Register = new Register();
+  constructor(
+    private authService: AuthService,
+    private toastr: NgToastService,
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  saveUser() {
+    this.authService.saveUser(this.register).subscribe(
+      (res: any) => {
+        this.toastr.success({
+          detail: 'Success Message',
+          summary: 'Register Successfully',
+          duration: 2000,
+        });
+        this.router.navigateByUrl('/auth/login');
+      },
+      (error) => {
+        this.toastr.error({
+          detail: 'Error Message',
+          summary: error.error.message,
+          duration: 2000,
+        });
+      }
+    );
+  }
 }

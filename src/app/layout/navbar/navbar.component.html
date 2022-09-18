@@ -1,17 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="card navbar">
-      <div class="card-body navbar-content">
+    <div class="card">
+      <div class="card-body">
         <div class="cart">
           <button type="button" [routerLink]="['/cart']">
             <i class="fas fa-cart-plus cart"></i>
             <div class="badge bg-danger">{{ counter }}</div>
           </button>
         </div>
-        <div class="User-Image">
-          <img [src]="currentUser?.imageUrl" alt="user-icon" class="user-icon-image" />
-          <!-- <button type="button"><i class="fa fa-power-off"></i></button> -->
-        </div>
+        <img
+          [src]="currentUser?.imageUrl"
+          alt="user-icon"
+          class="user-icon-image"
+        />
+        <!-- <button type="button"><i class="fa fa-power-off"></i></button> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>

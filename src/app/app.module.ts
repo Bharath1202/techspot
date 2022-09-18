@@ -14,6 +14,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { InterceptorInterceptor } from './auth/helpers/interceptor.interceptor';
+import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { InterceptorInterceptor } from './auth/helpers/interceptor.interceptor';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
+    NgToastModule,
   ],
   providers: [
     LayoutService,
