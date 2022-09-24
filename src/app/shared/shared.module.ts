@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NumberValidationDirective } from './number-validation.directive';
-
-
-
-@NgModule({
+import { VerticalComponent } from './components/vertical/vertical.component';
+import { HorizontalComponent } from './components/horizontal/horizontal.component';
+NgModule({
   declarations: [
-    NumberValidationDirective
-  ],
-  imports: [
+    VerticalComponent,
+    HorizontalComponent],
+   imports: [
     CommonModule
   ],
 })
