@@ -15,6 +15,13 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { InterceptorInterceptor } from './auth/helpers/interceptor.interceptor';
 import { NgToastModule } from 'ng-angular-popup';
+
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +40,11 @@ import { NgToastModule } from 'ng-angular-popup';
     MatSidenavModule,
     MatToolbarModule,
     NgToastModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     LayoutService,

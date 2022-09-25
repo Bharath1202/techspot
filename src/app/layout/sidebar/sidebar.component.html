@@ -9,15 +9,15 @@
           <h4>TECH SPOT</h4>
         </div>
       </div>
-      <div class="sideNav">
-        <ul class="sideNav-content">
+      <div class="sideNav" *ngIf="loginType =='admin'">
+        <ul class="sideNav-content" *ngFor="let adminSidebar of adminMenu">
           <li class="content-list" *ngIf="loginType == 'admin'">
-            <div class="dashboard mb-4" [routerLink]="['/home/dashboard']">
-              <i class="fas fa-gauge"></i>
-              <h3>Dashboard</h3>
+            <div class="dashboard mb-4">
+              <span [data-feather]="adminSidebar.icon" ></span>
+              <a [routerLink]="[adminSidebar?.url]">{{adminSidebar?.title}}</a>
             </div>
           </li>
-          <li class="dropdown">
+          <!-- <li class="dropdown">
             <div class="dropdown">
               <div (click)="toShow()">
                 <div class="title">
@@ -52,9 +52,15 @@
                 </div>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
+      <div class="sideNav">
+        <ul class="sideNav-content">
+          </ul>
+          </div>
+
+
     </div>
   </div>
 </mat-nav-list>

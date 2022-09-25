@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Login } from '../../model/login';
 import { AuthService } from '../../service/auth.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,10 +23,10 @@ export class LoginComponent implements OnInit {
     this.authService.postlogin(this.login).subscribe((res: any) => {
       if (this.loginType == 'admin') {
         this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
-        this.router.navigateByUrl('/home/dashboard');
+        this.router.navigateByUrl('/home/dashboard')
       } else {
         this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
-        this.router.navigateByUrl('/home/mobiles');
+        // this.router.navigateByUrl('/home/mobiles');
       }
     }, (error) => {
       this.toastr.error({ detail: "Error Message", summary: error.error.message, duration: 2000 })

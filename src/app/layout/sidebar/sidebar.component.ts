@@ -5,6 +5,7 @@ import {
   ViewEncapsulation,
   EventEmitter,
 } from '@angular/core';
+import { Menu, Menu1 } from 'src/app/layout/menu/menu';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,9 +14,11 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class SidebarComponent implements OnInit {
-  public loginType
+  public loginType;
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
   public class = 0;
+  private adminMenu = Menu;
+  public userMenu = Menu1;
   public showElectronics = false;
   constructor() { }
 
