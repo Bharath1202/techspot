@@ -1,0 +1,37 @@
+#electronics {
+    .elecetonics-content {
+        padding: 2rem 1.5rem 0rem 1.5rem;
+
+        .product-details {
+            display: flex;
+
+            .media {
+                display: flex;
+
+                .uploadImage {
+                    margin: 1rem 0 0 1rem;
+
+                    .changeProfile {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+
+            .product-description {
+                display: flex;
+
+                .form-group {
+                    width: 22rem;
+                    margin-bottom: 1rem;
+                }
+            }
+
+            .product-edit {
+                .edit-button {
+                    float: right;
+                    width: 6rem;
+                }
+            }
+        }
+    }
+}

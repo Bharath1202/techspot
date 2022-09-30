@@ -12,7 +12,7 @@ import { SoftwareComponent } from './components/software/software.component';
 import { ToolsAndHomeImprovementComponent } from './components/tools-and-home-improvement/tools-and-home-improvement.component';
 import { BeautyAndPersonalCareComponent } from './components/beauty-and-personal-care/beauty-and-personal-care.component';
 import { BabyComponent } from './components/baby/baby.component';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { BabyComponent } from './components/baby/baby.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ]
 })
 export class AdminModule { }
