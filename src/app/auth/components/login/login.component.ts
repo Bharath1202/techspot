@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
   submit() {
     this.authService.postlogin(this.login).subscribe((res: any) => {
-      if (this.loginType == 'admin') {
+      if (this.loginType === 'admin') {
         this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
         this.router.navigateByUrl('/home/admin')
       } else {
