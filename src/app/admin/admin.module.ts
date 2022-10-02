@@ -13,6 +13,7 @@ import { ToolsAndHomeImprovementComponent } from './components/tools-and-home-im
 import { BeautyAndPersonalCareComponent } from './components/beauty-and-personal-care/beauty-and-personal-care.component';
 import { BabyComponent } from './components/baby/baby.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

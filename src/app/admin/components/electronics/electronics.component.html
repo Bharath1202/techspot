@@ -1,50 +1,153 @@
 <div id="electronics">
     <div class="elecetonics-content">
-        <div class="card">
-            <div class="card-body product-details">
-                <div class="media mb-2 col-md-3">
-                    <img class="user-avatar users-avatar-shadow rounded mr-2 my-25 cursor-pointer" [src]="avatarImage"
-                        alt="product Image" />
-                </div>
-                <div class="product-description col-md-6">
+        <form #electronicsForm="ngForm" (ngSubmit)="(electronicsForm.form.valid) && saveElectronics()">
+            <div class="card">
+                <div class="card-body product-details">
                     <div>
-                        <div class="form-group">
-                            <label for="mobileName">Mobile Name</label>
-                            <input type="text" placeholder="MobileName" minlength="2" maxlength="10"
-                                class="forms-control">
-                        </div>
-                        <div class="form-group ">
-                            <label for="mobileName">Mobile Price</label>
-                            <input type="text" appNumberValidation placeholder="Mobile Price" minlength="2"
-                                maxlength="10" class="forms-control">
-                        </div>
-                    </div>
-                    <div>
-                        <div class="form-group ">
-                            <label for="mobileName">Model Name</label>
-                            <input type="text" placeholder="Model Name" minlength="2" maxlength="10"
-                                class="forms-control">
-                        </div>
-                        <div class="form-group ">
-                            <label for="mobileName">Model Number</label>
-                            <input type="text" placeholder="Model Number" minlength="2" maxlength="10"
-                                class="forms-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="product-edit col-md-2">
-                    <button type="button" (click)="editProduct()" class="btn btn-primary edit-button"> <i
-                            class="fa fa-edit"></i> Edit</button>
-                </div>
-            </div>
-        </div>
+                        <div class="media mb-2 col-md-3">
+                            <div class="image">
+                                <img src="../../../../assets/images/000.png"
+                                    class="user-avatar  users-avatar-shadow rounded " alt="product Image" />
+                                <button class="upload">
+                                    <i class="fa fa-cloud-arrow-up "></i>
+                                </button>
+                            </div>
 
-        <div class="card" *ngIf="productEdit==true">
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="mobileName">Mobile Name</label>
-                    <input type="text" placeholder="MobileName" minlength="2" maxlength="10" class="forms-control">
+                        </div>
+                    </div>
+                    <div class="product-description col-md-6">
+                        <div>
+                            <div class="form-group mobileName">
+                                <label>Mobile Name</label>
+                                <input type="text" placeholder="MobileName" minlength="2" maxlength="10"
+                                    class="forms-control" [(ngModel)]="electronics.mobileName" name="mobileName">
+                            </div>
+                            <div class="form-group mobilePrice">
+                                <label>Mobile Price</label>
+                                <input type="text" appNumberValidation placeholder="Mobile Price" minlength="2"
+                                    maxlength="10" class="forms-control" [(ngModel)]="electronics.mobilePrice"
+                                    name="mobilePrice">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group ">
+                                <label>Model Name</label>
+                                <input type="text" placeholder="Model Name" minlength="2" maxlength="5"
+                                    class="forms-control" [(ngModel)]="electronics.mobileModelName"
+                                    name="mobileModelName">
+                            </div>
+                            <div class="form-group ">
+                                <label>Model Number</label>
+                                <input type="text" placeholder="Model Number" minlength="16" maxlength="6"
+                                    class="forms-control" [(ngModel)]="electronics.modelNumber" name="modelNumber">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-edit">
+                        <button type="button" (click)="editProduct()" class="btn btn-primary edit-button"> <i
+                                class="fa fa-edit"></i> Edit</button>
+                        <button type="button" class="btn btn-danger edit-button"> <i class="fa fa-trash"></i>
+                            Delete</button>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>Mobile Offer</label>
+                            <input type="text" placeholder="Mobile Offer" minlength="1" maxlength="2"
+                                class="forms-control" [(ngModel)]="electronics.mobileOffer" name="mobileOffer">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Brand Name</label>
+                            <input type="text" placeholder="Brand Name" minlength="2" maxlength="5"
+                                class="forms-control" [(ngModel)]="electronics.brandName" name="brandName">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Wirless Carrier</label>
+                            <input type="text" placeholder="Wirless Carrier" minlength="2" maxlength="20"
+                                class="forms-control" [(ngModel)]="electronics.wirlessCarrier" name="wirlessCarrier">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Operating System</label>
+                            <input type="text" placeholder="Operating System" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.operatingSystem" name="operatingSystem">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Technology</label>
+                            <input type="text" placeholder="Technology" minlength="2" maxlength="5"
+                                class="forms-control" [(ngModel)]="electronics.technology" name="technology">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Internet Connectivity</label>
+                            <input type="text" placeholder="Internet Connectivity" minlength="2" maxlength="50"
+                                class="forms-control" [(ngModel)]="electronics.internetConnectivity"
+                                name="internetConnectivity">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Product Decsription</label>
+                            <input type="text" placeholder="Product Decsription" minlength="2" maxlength="5000"
+                                class="forms-control" [(ngModel)]="electronics.productDecsription"
+                                name="productDecsription">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Sim Type</label>
+                            <input type="text" placeholder="Sim Type" minlength="2" maxlength="10" class="forms-control"
+                                [(ngModel)]="electronics.simType" name="simType">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Display Size</label>
+                            <input type="text" placeholder="MobileName" minlength="2" maxlength="30"
+                                class="forms-control" [(ngModel)]="electronics.displaySize" name="displaySize">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Display Technology</label>
+                            <input type="text" placeholder="MobileName" minlength="2" maxlength="0"
+                                class="forms-control" [(ngModel)]="electronics.displaytechnology"
+                                name="displaytechnology">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Resolution</label>
+                            <input type="text" placeholder="Resolution" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.resolution" name="resolution">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Item Wight</label>
+                            <input type="text" placeholder="Item Wight" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.itemWight" name="itemWight">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Processor Type</label>
+                            <input type="text" placeholder="Processor Type" minlength="2" maxlength="30"
+                                class="forms-control" [(ngModel)]="electronics.processorType" name="processorType">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Processor Core</label>
+                            <input type="text" placeholder="Processor Core" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.processorCore" name="processorCore">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Mobile Name</label>
+                            <input type="text" placeholder="MobileName" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.mobilePrice" name="mobilePrice">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Storage</label>
+                            <input type="text" placeholder="Storage" minlength="2" maxlength="40" class="forms-control"
+                                [(ngModel)]="electronics.storage" name="storage">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Battery</label>
+                            <input type="text" placeholder="Battery" minlength="2" maxlength="10" class="forms-control"
+                                [(ngModel)]="electronics.battery" name="battery">
+                        </div>
+                        <div class="electronicsBtn">
+                            <button type="submit" class="btn btn-primary">{{buttonName}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>

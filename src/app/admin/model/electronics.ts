@@ -1,0 +1,26 @@
+export class Electronics {
+    _id?: any;
+    imageUrl?: string;
+    mobileName?: string;
+    mobilePrice?: number;
+    mobileOffer: string;
+    brandName?: string;
+    mobileModelName?: string;
+    modelNumber?: string;
+    wirlessCarrier: string;
+    operatingSystem: string;
+    technology: string;
+    internetConnectivity?: string;
+    mobileColor?: string;
+    wirelessNetwork?: string;
+    productDecsription?: string;
+    simType?: boolean;
+    displaySize?: string;
+    displaytechnology?: string;
+    resolution?: string;
+    itemWight?: string;
+    processorType?: string;
+    processorCore?: string;
+    storage?: string;
+    battery?: string;
+}
