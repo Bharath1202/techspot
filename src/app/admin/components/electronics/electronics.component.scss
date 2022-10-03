@@ -9,17 +9,19 @@
             .media {
                 display: flex;
 
-                .upload {
-                    display: none;
-                    position: absolute;
-                    left: 177px;
-                    margin: 1% 0;
-                    cursor: pointer;
-                    font-size: 1.2rem;
-                }
+                // span {
+                //     display: none;
+                //     position: absolute;
+                //     left: 177px;
+                //     margin: 1% 0;
+                //     cursor: pointer;
+                //     font-size: 1.2rem;
+                // }
 
                 .uploadImage {
-                    margin: 1rem 0 0 1rem;
+                    border: none;
+                    outline: none;
+                    background: transparent;
 
                     .changeProfile {
                         margin-right: 1rem;
@@ -46,9 +48,26 @@
             }
         }
     }
+
+    .electronicsBtn {
+        display: flex;
+        justify-content: end;
+    }
 }
 
-.image:hover .upload {
-    cursor: pointer;
-    display: block;
+.offers {
+    margin: 1rem 0;
+
+    button {
+        padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+        border: none;
+        outline: none;
+        margin: 0 3%;
+        color: #fff;
+        background-color: green;
+    }
 }
+
+// .media:hover .fa-cloud-arrow-up {
+//     display: block;
+// }

@@ -21,14 +21,17 @@ export class LoginComponent implements OnInit {
   }
   submit() {
     this.authService.postlogin(this.login).subscribe((res: any) => {
-      if (this.loginType === 'admin') {
-        console.log(this.loginType);
+      console.log(res);
 
+      if (res?.result?.loginType === 'admin') {
         this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
         this.router.navigateByUrl('/home/admin')
-      } else {
+      } else if (res?.result?.loginType === 'user') {
         this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
-        // this.router.navigateByUrl('/home/mobiles');
+        this.router.navigateByUrl('/home/mobiles');
+      }
+      else {
+        this.toastr.error({ detail: "Error Message", summary: 'User Is not Registered', duration: 2000 })
       }
     }, (error) => {
       this.toastr.error({ detail: "Error Message", summary: error.error.message, duration: 2000 })

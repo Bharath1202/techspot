@@ -49,24 +49,19 @@ export const Menu = [
 
 
 export const Menu1 = [
+  // {
+  //   id: 'electronics',
+  //   title: 'Electronics',
+  //   type: 'collapsible',
+  //   role: ['admin'],
+  //   url: 'electronics',
+  //   children: [
   {
-    id: 'dashboard',
-    title: 'Dashboard',
+    id: 'mobiles',
+    title: 'Mobile',
     type: 'item',
-    url: 'dashboard',
-  },
-  {
-    id: 'electronics',
-    title: 'Electronics',
-    type: 'collapsible',
-    url: 'electronics',
-    children: [
-      {
-        id: 'mobile',
-        title: 'Mobile',
-        type: 'item',
-        url: 'mobile',
-      }
-    ]
-  },
+    url: 'mobiles',
+  }
+  // ]
+  // },
 ];

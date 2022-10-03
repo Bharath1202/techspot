@@ -3,7 +3,7 @@ export class Electronics {
     imageUrl?: string;
     mobileName?: string;
     mobilePrice?: number;
-    mobileOffer: string;
+    mobileOffer: number;
     brandName?: string;
     mobileModelName?: string;
     modelNumber?: string;

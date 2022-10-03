@@ -14,6 +14,7 @@ import { BeautyAndPersonalCareComponent } from './components/beauty-and-personal
 import { BabyComponent } from './components/baby/baby.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ]
 })
 export class AdminModule { }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -12,5 +12,9 @@ export class MobileService {
 
   getAllMobile() {
     return this.httpCLient.get(`${this.baseUrl}`)
+  }
+  getSingleMobile(id) {
+    const params = new HttpParams().set('_id', id);
+    return this.httpCLient.get(`${this.baseUrl}/getSingleMobile`, { params })
   }
 }

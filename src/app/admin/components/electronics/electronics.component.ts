@@ -12,7 +12,7 @@ import { ElectronicsService } from '../../service/electronics.service';
 })
 export class ElectronicsComponent implements OnInit {
 
-  public image: String;
+  public image: string;
   public buttonName = 'Save';
   public productEdit: Boolean = false;
   public avatarImage: string = 'https://dummyimage.com/200x200/ccc/000';
@@ -23,8 +23,11 @@ export class ElectronicsComponent implements OnInit {
   }
   upload(event) {
     this.image = event.target.files[0]
-    const file = this.image[0]
-    this.fireStorage.upload("/files" + Math.random() + this.image, this.image[0]);
+    this.fireStorage.upload("/electronics/mobile" + Math.random() + this.image, this.image);
+  }
+
+  removeImg() {
+    this.avatarImage = 'https://dummyimage.com/200x200/ccc/000';
 
   }
   editProduct() {
@@ -34,12 +37,18 @@ export class ElectronicsComponent implements OnInit {
       this.productEdit = false;
     }
   }
+  offer(event) {
+    this.electronics.mobileOffer = Number(event.target.value)
+  }
   saveElectronics() {
+    console.log(this.electronics);
     this.electronicsService.saveElectronics(this.electronics).subscribe((res: any) => {
       console.log(res);
-      this.toastr.success({ detail: "Success Message", summary: 'Login Successfully', duration: 2000 })
+
+      this.toastr.success({ detail: "Success Message", summary: 'Save Successfully', duration: 2000 })
     }, (error) => {
       console.log(error);
     })
   }
+
 }

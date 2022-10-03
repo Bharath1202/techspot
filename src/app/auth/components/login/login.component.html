@@ -1,7 +1,7 @@
 <div class="login">
   <div class="content">
     <div class="loginBox">
-      <form autocomplete="off" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && submit()">
+      <form autocomplete="off" class="loginform" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && submit()">
         <h2>Sign in</h2>
         <div class="loginInputBox">
           <input type="text" required="required" minlength="2" maxlength="50" [(ngModel)]="login.email" name="email"
