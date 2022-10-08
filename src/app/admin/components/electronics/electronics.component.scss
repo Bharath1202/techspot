@@ -4,19 +4,9 @@
 
         .product-details {
             display: flex;
-            justify-content: space-between;
 
             .media {
                 display: flex;
-
-                // span {
-                //     display: none;
-                //     position: absolute;
-                //     left: 177px;
-                //     margin: 1% 0;
-                //     cursor: pointer;
-                //     font-size: 1.2rem;
-                // }
 
                 .uploadImage {
                     border: none;
@@ -31,7 +21,7 @@
 
             .product-description {
                 display: flex;
-                margin-top: 2rem;
+                margin: 2rem 0 0 2rem;
 
                 .mobileName,
                 .mobilePrice {
@@ -52,6 +42,11 @@
     .electronicsBtn {
         display: flex;
         justify-content: end;
+
+        button {
+            margin-left: 1rem;
+            border-radius: 5px;
+        }
     }
 }
 
@@ -59,15 +54,10 @@
     margin: 1rem 0;
 
     button {
-        padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+        border-radius: 11px;
         border: none;
         outline: none;
         margin: 0 3%;
         color: #fff;
-        background-color: green;
     }
 }
-
-// .media:hover .fa-cloud-arrow-up {
-//     display: block;
-// }

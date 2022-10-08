@@ -15,6 +15,11 @@ import { BabyComponent } from './components/baby/baby.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ElectronicsListComponent } from './components/electronics-list/electronics-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -27,14 +32,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SoftwareComponent,
     ToolsAndHomeImprovementComponent,
     BeautyAndPersonalCareComponent,
-    BabyComponent
+    BabyComponent,
+    ElectronicsListComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class AdminModule { }

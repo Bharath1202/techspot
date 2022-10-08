@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ElectronicsComponent } from './admin/components/electronics/electronics.component';
-import { DashboardComponent } from './dashboard/components/dashboard/dashboard.component';
+import { AuthGuard } from './auth/helpers/auth.guard';
 import { HomePageComponent } from './layout/home-page/home-page.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
@@ -11,11 +9,9 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((x) => x.AuthModule),
   },
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
-
   {
     path: 'home',
-    component: HomePageComponent,
+    component: HomePageComponent, canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
@@ -24,7 +20,7 @@ const routes: Routes = [
       },
       /** Admin Portal */
       {
-        path:'admin',loadChildren:()=> import('./admin/admin.module').then(x=>x.AdminModule),
+        path: 'admin', loadChildren: () => import('./admin/admin.module').then(x => x.AdminModule),
       },
 
       /**Admin Portal End */
@@ -50,4 +46,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

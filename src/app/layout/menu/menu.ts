@@ -35,7 +35,7 @@ export const Menu = [
     title: 'Electronics',
     icon: faMobile,
     type: 'item',
-    url: 'admin/electronics',
+    url: 'admin/electronicsList',
   },
   {
     id: 'homeAcessories',

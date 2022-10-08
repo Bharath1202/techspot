@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -12,5 +12,15 @@ export class ElectronicsService {
 
   saveElectronics(data) {
     return this.httpClient.post(`${this.baseUrl}`, data)
+  }
+  getAllElectronics() {
+    return this.httpClient.get(`${this.baseUrl}`)
+  }
+  getSingleElectronics(id) {
+    const params = new HttpParams().append('_id', id);
+    return this.httpClient.get(`${this.baseUrl}/getSingleMobile`, { params })
+  }
+  updateElectronics(data) {
+    return this.httpClient.put(`${this.baseUrl}`, data)
   }
 }

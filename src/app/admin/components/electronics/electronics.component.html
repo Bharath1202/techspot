@@ -1,6 +1,6 @@
 <div id="electronics">
     <div class="elecetonics-content">
-        <form #electronicsForm="ngForm" (ngSubmit)="(electronicsForm.form.valid) && saveElectronics()">
+        <form #electronicsForm="ngForm" (ngSubmit)="(electronicsForm.form.valid) && saveElectronics(electronicsForm)">
             <div class="card">
                 <div class="card-body product-details">
                     <div>
@@ -9,7 +9,6 @@
                                 <img src="../../../../assets/images/000.png"
                                     class="user-avatar  users-avatar-shadow rounded " alt="product Image" />
                             </div>
-
                         </div>
                         <div class="col-12 d-flex justify-content-evenly mt-1 px-0">
                             <label class="btn btn-primary mr-75 mb-0" for="change-picture">
@@ -30,40 +29,51 @@
                     <div class="product-description col-md-6">
                         <div>
                             <div class="form-group mobileName">
-                                <label>Mobile Name</label>
+                                <label>Mobile Name<span class="required">*</span></label>
                                 <input type="text" placeholder="MobileName" minlength="2" maxlength="10"
-                                    class="forms-control" [(ngModel)]="electronics.mobileName" name="mobileName">
+                                    class="forms-control" [(ngModel)]="electronics.mobileName" name="mobileName"
+                                    #MobileName="ngModel" [class.error]="electronicsForm.submitted && !MobileName.valid"
+                                    required>
+                                <span *ngIf="electronicsForm.submitted && !MobileName.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
                             </div>
                             <div class="form-group mobilePrice">
-                                <label>Mobile Price</label>
+                                <label>Mobile Price<span class="required">*</span></label>
                                 <input type="text" appNumberValidation placeholder="Mobile Price" minlength="2"
                                     maxlength="10" class="forms-control" [(ngModel)]="electronics.mobilePrice"
-                                    name="mobilePrice">
+                                    name="mobilePrice" #MobilePrice="ngModel"
+                                    [class.error]="electronicsForm.submitted && !MobilePrice.valid" required>
+                                <span *ngIf="electronicsForm.submitted && !MobilePrice.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
                             </div>
                         </div>
                         <div>
                             <div class="form-group ">
-                                <label>Model Name</label>
+                                <label>Model Name<span class="required">*</span></label>
                                 <input type="text" placeholder="Model Name" minlength="2" maxlength="10"
                                     class="forms-control" [(ngModel)]="electronics.mobileModelName"
-                                    name="mobileModelName">
+                                    name="mobileModelName" #ModelName="ngModel"
+                                    [class.error]="electronicsForm.submitted && !ModelName.valid" required>
+                                <span *ngIf="electronicsForm.submitted && !ModelName.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
                             </div>
                             <div class="form-group ">
-                                <label>Model Number</label>
+                                <label>Model Number<span class="required">*</span></label>
                                 <input type="text" placeholder="Model Number" minlength="2" maxlength="16"
-                                    class="forms-control" [(ngModel)]="electronics.modelNumber" name="modelNumber">
+                                    class="forms-control" [(ngModel)]="electronics.modelNumber" name="modelNumber"
+                                    #modelNumber="ngModel"
+                                    [class.error]="electronicsForm.submitted && !modelNumber.valid" required>
+                                <span *ngIf="electronicsForm.submitted && !modelNumber.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <div class="product-edit">
-                        <button type="button" (click)="editProduct()" class="btn btn-primary edit-button"> <i
-                                class="fa fa-edit"></i> Edit</button>
-                        <button type="button" class="btn btn-danger edit-button"> <i class="fa fa-trash"></i>
-                            Delete</button>
-                    </div>
                 </div>
             </div>
-
             <div class="card mt-3">
                 <div class="card-body">
                     <div class="row">
@@ -141,27 +151,31 @@
                         </div>
                         <div class="col-12">
                             <label>Product Decsription</label>
-                            <textarea placeholder="Product Decsription" minlength="2" maxlength="5000"
+                            <textarea placeholder="Product Decsription" minlength="2" rows="5" maxlength="5000"
                                 class="forms-control" [(ngModel)]="electronics.productDecsription"
                                 name="productDecsription"></textarea>
                         </div>
                         <div class="form-group col-md-4 mt-4">
                             <label>Mobile Offer</label>
                             <div class="form-group offers">
-                                <button type="button" [value]="5" (click)="offer($event)">5%</button>
-                                <button type="button" [value]="10" (click)="offer($event)">10%</button>
-                                <button type="button" [value]="15" (click)="offer($event)">15%</button>
-                                <button type="button" [value]="20" (click)="offer($event)">20%</button>
+                                <button type="button" class="btn btn-primary" [value]="5"
+                                    (click)="offer($event)">5%</button>
+                                <button type="button" class="btn btn-secondary" [value]="10"
+                                    (click)="offer($event)">10%</button>
+                                <button type="button" class="btn btn-info" [value]="15"
+                                    (click)="offer($event)">15%</button>
+                                <button type="button" class="btn btn-warning" [value]="20"
+                                    (click)="offer($event)">20%</button>
                             </div>
-
-                            <!-- <input type="text" placeholder="Mobile Offer" minlength="1" maxlength="2"
-                                class="forms-control" [(ngModel)]="electronics.mobileOffer" name="mobileOffer"> -->
                         </div>
                         <div class="electronicsBtn mt-2">
-                            <button type="submit" class="btn btn-primary mr-2">{{buttonName}}</button>
+                            <button type="submit" class="btn btn-primary">{{buttonName}}</button>
+                            <button type="button" class="btn btn-secondary ml-3"
+                                [routerLink]="['/home/admin/electronicsList']">Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
     </div>
+</div>

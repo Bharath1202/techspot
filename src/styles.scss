@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../src//app/color.scss';
+
 * {
   padding: 0%;
   margin: 0%;
@@ -42,6 +44,10 @@ body {
   outline: 0;
 }
 
+button:focus {
+  background: transparent;
+}
+
 .form-text {
   color: #45f3ff;
 }
@@ -59,4 +65,47 @@ label {
 .form-group {
   width: 22rem;
   margin-bottom: 1rem;
+}
+
+.dropdown-toggle.hide-arrow,
+.dropdown-toggle-hide-arrow>.dropdown-toggle {
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.required {
+  color: #ff0000;
+}
+
+form {
+  span.error {
+    width: 100%;
+    font-size: 0.857rem;
+  }
+
+  .error:not(input) {
+    color: $Red;
+  }
+
+  input.error,
+  input.error:focus {
+    border-color: $Red !important;
+  }
+
+  textarea.error {
+    border-color: $Red !important;
+  }
+
+  .select2.error {
+
+    +.select2-container--classic .select2-selection--single,
+    +.select2-container--default .select2-selection--single,
+    +.select2-container--classic .select2-selection--multiple,
+    +.select2-container--default .select2-selection--multiple {
+      border-color: $Red !important;
+    }
+  }
 }

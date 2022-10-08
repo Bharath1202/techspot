@@ -17,7 +17,8 @@ export class SidebarComponent implements OnInit {
   public loginType;
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
   public class = 0;
-  private adminMenu = Menu;
+  public adminMenu = Menu;
+  public showSidebar = true;
   public userMenu = Menu1;
   public showElectronics = false;
   constructor() { }
