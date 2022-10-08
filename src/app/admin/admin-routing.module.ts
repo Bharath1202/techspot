@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BabyComponent } from './components/baby/baby.component';
 import { BeautyAndPersonalCareComponent } from './components/beauty-and-personal-care/beauty-and-personal-care.component';
 import { ComputerComponent } from './components/computer/computer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ElectronicsListComponent } from './components/electronics-list/electronics-list.component';
 import { ElectronicsComponent } from './components/electronics/electronics.component';
 import { HomeAndKitchenComponent } from './components/home-and-kitchen/home-and-kitchen.component';
@@ -11,6 +12,9 @@ import { MensFashionComponent } from './components/mens-fashion/mens-fashion.com
 import { SoftwareComponent } from './components/software/software.component';
 
 const routes: Routes = [
+  {
+    path: 'dashboard', component: DashboardComponent
+  },
   {
     path: 'baby', component: BabyComponent
   },

@@ -13,11 +13,6 @@ const routes: Routes = [
     path: 'home',
     component: HomePageComponent, canActivate: [AuthGuard],
     children: [
-      {
-        path: 'dashboard',
-        loadChildren: () =>
-          import('./dashboard/dashboard.module').then((x) => x.DashboardModule),
-      },
       /** Admin Portal */
       {
         path: 'admin', loadChildren: () => import('./admin/admin.module').then(x => x.AdminModule),

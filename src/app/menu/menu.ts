@@ -7,7 +7,7 @@ export const Menu = [
     title: 'Dashboard',
     type: 'item',
     icon: faGauge,
-    url: 'dashboard',
+    url: 'admin/dashboard',
   },
   {
     id: 'baby',

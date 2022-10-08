@@ -1,0 +1,98 @@
+<div class="wrapper" *ngIf="loginType == 'admin'">
+    <div class="wrapper-content">
+        <div class="container">
+            <!-- <div class="col-md-4 col-lg-6"> -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-6 card-revenue">
+                        <div class="card dashboard">
+                            <div class="dashboard-body">
+                                <div class="revenue-report mb-3">
+                                    <h4 class="card-revenue-title mb-50 mb-sm-0">
+                                        Revenue Report
+                                    </h4>
+                                </div>
+                                <div id="revenue-report-chart">
+                                    <apx-chart [series]="revenueChartOptions.series" [chart]="revenueChartOptions.chart"
+                                        [tooltip]="revenueChartOptions.tooltip"
+                                        [plotOptions]="revenueChartOptions.plotOptions"
+                                        [colors]="revenueChartOptions.colors"
+                                        [dataLabels]="revenueChartOptions.dataLabels"
+                                        [legend]="revenueChartOptions.legend" [grid]="revenueChartOptions.grid"
+                                        [xaxis]="revenueChartOptions.xaxis" [yaxis]="revenueChartOptions.yaxis">
+                                    </apx-chart>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card-sales">
+                        <div class="card total-sales">
+                            <div class="card-sales-title">
+                                <h4>Total Sales</h4>
+                                <div ngbDropdown class="sales-dropdown">
+                                    <button rippleEffect class="btn btn-sm" ngbDropdownToggle type="button"
+                                        id="dropdown" aria-haspopup="true">
+                                        {{ days }}
+                                    </button>
+                                    <div ngbDropdownMenu class="dropdown-content" aria-labelledby="dropdown">
+                                        <a ngbDropdownItem href="javascript:void(0);"
+                                            (click)="salesDataForWeek($event)">Last 7 Days</a>
+                                        <a ngbDropdownItem href="javascript:void(0);"
+                                            (click)="salesDataForMonth($event)">Last Month</a>
+                                        <a ngbDropdownItem href="javascript:void(0);"
+                                            (click)="salesDataForYear($event)">Last Year</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="total-calc-sales">
+                                <div class="row">
+                                    <div class="col-sm-10 col-12 sales-tarcker">
+                                        <div id="sales-chart">
+                                            <apx-chart [chart]="salesChartOptions.chart"
+                                                [plotOptions]="salesChartOptions.plotOptions"
+                                                [series]="salesChartOptions.series" [colors]="salesChartOptions.colors"
+                                                [fill]="salesChartOptions.fill" [stroke]="salesChartOptions.stroke"
+                                                [labels]="salesChartOptions.labels">
+                                            </apx-chart>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12 earnings-card">
+                        <div class="card total-earnings">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h4 class="card-title mb-1">Earnings</h4>
+                                        <div class="font-small-2">This Month</div>
+                                        <h5 class="mb-1">${{ total }}</h5>
+                                        <p class="card-text text-muted font-small-2">
+                                            <span class="font-weight-bolder">68.2%</span><span> more earnings than last
+                                                month.</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div id="earnings-donut-chart">
+                                            <apx-chart [chart]="earningsChartOptions.chart"
+                                                [series]="earningsChartOptions.series"
+                                                [dataLabels]="earningsChartOptions.dataLabels"
+                                                [legend]="earningsChartOptions.legend"
+                                                [grid]="earningsChartOptions.grid"
+                                                [stroke]="earningsChartOptions.stroke"
+                                                [plotOptions]="earningsChartOptions.plotOptions"
+                                                [colors]="earningsChartOptions.colors"
+                                                [labels]="earningsChartOptions.labels">
+                                            </apx-chart>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

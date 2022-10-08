@@ -5,7 +5,7 @@ import {
   ViewEncapsulation,
   EventEmitter,
 } from '@angular/core';
-import { Menu, Menu1 } from 'src/app/layout/menu/menu';
+import { Menu, Menu1 } from 'src/app/menu/menu';
 
 @Component({
   selector: 'app-sidebar',

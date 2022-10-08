@@ -14,6 +14,8 @@ export class AuthService {
 
   postlogin(data) {
     return this.httpClient.post<any>(`${this.baseUrl}`, data).pipe(map(user => {
+      console.log(user);
+
       if (user?.result && user?.result?.token) {
         let userDetail = user?.result?.userDetails
         let loginType = user?.result?.loginType

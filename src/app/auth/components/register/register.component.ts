@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { environment } from 'src/environments/environment';
 import { Register } from '../../model/register';
 import { AuthService } from '../../service/auth.service';
 
@@ -21,6 +22,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void { }
 
   saveUser() {
+    this.register.imageUrl = environment.imageUrl;
     this.authService.saveUser(this.register).subscribe(
       (res: any) => {
         this.toastr.success({

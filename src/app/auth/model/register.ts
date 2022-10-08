@@ -4,4 +4,5 @@ export class Register {
   mobile?: number;
   email?: string;
   password?: string;
+  imageUrl?: string;
 }

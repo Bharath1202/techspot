@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
+
   public behaviourSubject
   public behaviourSubject1
   public behaviourSubject2
@@ -23,4 +24,3 @@ export class DashboardService {
     return this.behaviourSubject2
   }
 }
-

@@ -4,8 +4,7 @@ import { DashboardService } from '../../service/dashboard.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   private $textMutedColor = '#82868b';
@@ -297,4 +296,5 @@ export class DashboardComponent implements OnInit {
       ],
     };
   }
+
 }

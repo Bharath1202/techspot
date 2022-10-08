@@ -1,17 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="card">
-      <div class="card-body">
-        <div class="cart">
+    <div class="card navbar-card">
+      <div class="card-body navbar-body">
+        <div class="user-avatar" *ngIf="loginType == 'user'">
           <button type="button" [routerLink]="['/cart']">
             <i class="fas fa-cart-plus cart"></i>
             <div class="badge bg-danger">{{ counter }}</div>
           </button>
         </div>
-        <img [src]="currentUser?.imageUrl" alt="user-icon" class="user-icon-image" />
-        <button type="button" (click)="logout()">Logout</button>
-        <!-- <button type="button"><i class="fa fa-power-off"></i></button> -->
-        <!-- </div> -->
+        <div class="dropdown">
+          <div class="image">
+            <img [src]="currentUser?.imageUrl" alt="user-icon" class="user-icon-image" />
+          </div>
+          <ul class="dropdown-content">
+            <li><i class="fa-solid fa-user"></i>Profile</li>
+            <li (click)="logout()"><i class="fa fa-power-off"></i>logout</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
