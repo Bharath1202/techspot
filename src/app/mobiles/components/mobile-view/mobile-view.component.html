@@ -3,16 +3,15 @@
     <div class="row">
       <div class="col-md-3">
         <div class="mobile-image">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/arredo-79ef0.appspot.com/o/oppo.jpg?alt=media&token=3210ca6e-7f80-42b0-9aa6-137d9ea96e75"
-            alt=""
-          />
+          <img [src]="mobileList.imageUrl" alt="" />
         </div>
       </div>
       <div class="col-md-9 mobile-view">
         <div class="mobile-details">
           <div class="mobile-title">
-            <h3>OPPO A31 (Mystery Black, 128 GB) (6 GB RAM)</h3>
+            <h3>{{mobileList.mobileName}} {{'(' + mobileList.mobileColor + ', ' + mobileList?.ram + ')'}}
+              {{mobileList?.storage}}
+            </h3>
           </div>
           <div class="d-flex">
             <div id="mobile-rating">
@@ -21,11 +20,7 @@
               </span>
             </div>
             <div>
-              <img
-                src="../../../../assets/logo/logo.png"
-                class="assured-img"
-                alt="assured"
-              />
+              <img src="../../../../assets/logo/logo.png" class="assured-img" alt="assured" />
             </div>
           </div>
         </div>

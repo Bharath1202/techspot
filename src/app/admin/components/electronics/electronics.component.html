@@ -83,6 +83,11 @@
                                 class="forms-control" [(ngModel)]="electronics.brandName" name="brandName">
                         </div>
                         <div class="form-group col-md-4">
+                            <label>Mobile Color</label>
+                            <input type="text" placeholder="Mobile Color" minlength="2" maxlength="20"
+                                class="forms-control" [(ngModel)]="electronics.mobileColor" name="mobileColor">
+                        </div>
+                        <div class="form-group col-md-4">
                             <label>Wirless Carrier</label>
                             <input type="text" placeholder="Wirless Carrier" minlength="2" maxlength="20"
                                 class="forms-control" [(ngModel)]="electronics.wirlessCarrier" name="wirlessCarrier">
@@ -138,6 +143,11 @@
                             <label>Processor Core</label>
                             <input type="text" placeholder="Processor Core" minlength="2" maxlength="40"
                                 class="forms-control" [(ngModel)]="electronics.processorCore" name="processorCore">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>RAM</label>
+                            <input type="text" placeholder="RAM" minlength="2" maxlength="10" class="forms-control"
+                                [(ngModel)]="electronics.ram" name="ram">
                         </div>
                         <div class="form-group col-md-4">
                             <label>Storage</label>

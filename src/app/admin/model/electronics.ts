@@ -21,6 +21,7 @@ export class Electronics {
     itemWight?: string;
     processorType?: string;
     processorCore?: string;
+    ram?: string;
     storage?: string;
     battery?: string;
 }
