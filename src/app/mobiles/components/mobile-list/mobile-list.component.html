@@ -7,7 +7,7 @@
             <a href="#" [routerLink]="['/home/mobiles/view']" [queryParams]="{id:mobileItems._id}">
               <div class="card-body">
                 <div class="image">
-                  <img [src]="mobileItems?.imageUrl" alt="" />
+                  <img *ngIf="mobileItems?.imageUrl" [src]="mobileItems?.imageUrl" alt="" />
                   <h3>{{mobileItems?.mobileName}}</h3>
                   <span>{{mobileItems?.mobileColor}}</span>
                   <br />
@@ -22,7 +22,7 @@
                     <h4>{{mobileItems?.mobilePrice}}</h4>
                   </div>
                   <div class="offer">
-                    <sub>{{'(' + mobileItems?.mobileOffer + ')'}}% Offer</sub>
+                    <sub *ngIf="mobileItems?.mobileOffer">{{'(' + mobileItems?.mobileOffer + ')'}}% Offer</sub>
                   </div>
                 </div>
               </div>

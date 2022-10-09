@@ -28,8 +28,6 @@ export class DashboardComponent implements OnInit {
   public loginType;
   ngOnInit(): void {
     this.loginType = localStorage.getItem('loginType')
-    console.log(this.loginType);
-
     this.totalEarnings();
   }
 
@@ -82,11 +80,13 @@ export class DashboardComponent implements OnInit {
       series: [
         {
           name: 'Earnings',
-          data: [130, 120, 145, 150, 110, 90, 95, 99, 125],
+          data: [Math.floor(Math.random() * 150), Math.floor(Math.random() * 120), Math.floor(Math.random() * 100), Math.floor(Math.random() * 110), Math.floor(Math.random() * 90), Math.floor(Math.random() * 85), Math.floor(Math.random() * 70), Math.floor(Math.random() * 95), Math.floor(Math.random() * 180)],
         },
         {
           name: 'Expense',
-          data: [-40, -50, -35, -55, -50, -20, -20, -35, -35],
+          data: [Math.floor(Math.random() * -40), Math.floor(Math.random() * -50), Math.floor(Math.random() * -35), Math.floor(Math.random() * -55), Math.floor(Math.random() * -50), Math.floor(Math.random() * -55), Math.floor(Math.random() * -50), Math.floor(Math.random() * -40), Math.floor(Math.random() * 180)],
+
+          // data: [-40, -50, -35, -55, -50, -20, -20, -35, -35],
         },
       ],
       colors: [colors.solid.primary, colors.solid.warning],
@@ -156,7 +156,7 @@ export class DashboardComponent implements OnInit {
           enabled: false,
         },
       },
-      series: [30],
+      series: [Math.floor(Math.random() * 100)],
       plotOptions: {
         radialBar: {
           offsetY: 20,
