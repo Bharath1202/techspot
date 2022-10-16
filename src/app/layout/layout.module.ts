@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { TreeModule } from '@smart-webcomponents-angular/tree';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatListModule,
     MatIconModule,
     MatSidenavModule,
-    
+    TreeModule,
   ],
 })
-export class LayoutModule {}
+export class LayoutModule { }

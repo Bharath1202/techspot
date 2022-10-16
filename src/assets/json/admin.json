@@ -1,0 +1,21 @@
+{
+    "HEADER": {
+        "MORE": {
+            "TEXT": "More"
+        }
+    },
+    "MENUITEMS": {
+        "MENU": {
+            "TEXT": "MENU"
+        },
+        "INVENTORY": {
+            "TEXT": "electronics",
+            "BADGE": "New",
+            "LIST": {
+                "MOBILE": "mobile",
+                "LAPTOP": "laptop",
+                "DIA": "Dia"
+            }
+        }
+    }
+}

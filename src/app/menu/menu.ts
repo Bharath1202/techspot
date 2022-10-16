@@ -1,46 +1,48 @@
-import { faGauge, faMobile, faComputer, faBaby } from '@fortawesome/free-solid-svg-icons';
+/* 
+ <smart-tree #tree id="tree">
+          <smart-tree-items-group *ngFor="let p of adminMenu">
+            <i class="material-icons">&#xE53F;</i> {{p?.title}}
+            <smart-tree-item *ngFor="let i of p.children" [routerLink]="i.url">{{i.title}}</smart-tree-item>
+          </smart-tree-items-group>
+        </smart-tree>
 
+
+*/
 
 export const Menu = [
   {
     id: 'dashboard',
     title: 'Dashboard',
     type: 'item',
-    icon: faGauge,
     url: 'admin/dashboard',
   },
   {
     id: 'baby',
     title: 'Baby',
-    icon: faBaby,
     type: 'item',
     url: 'admin/baby',
   },
   {
     id: 'beautyAndPersonalCare',
     title: 'Beauty',
-    icon: faBaby,
     type: 'item',
     url: 'admin/beautyAndPersonalCare',
   },
   {
     id: 'computer',
     title: 'Computer',
-    icon: faComputer,
     type: 'item',
     url: 'admin/computer',
   },
   {
     id: 'electronics',
     title: 'Electronics',
-    icon: faMobile,
     type: 'item',
     url: 'admin/electronicsList',
   },
   {
     id: 'homeAcessories',
     title: 'Home & Kitchen',
-    icon: faMobile,
     type: 'item',
     url: 'admin/homeAcessories',
   },
@@ -49,19 +51,17 @@ export const Menu = [
 
 
 export const Menu1 = [
-  // {
-  //   id: 'electronics',
-  //   title: 'Electronics',
-  //   type: 'collapsible',
-  //   role: ['admin'],
-  //   url: 'electronics',
-  //   children: [
   {
-    id: 'mobiles',
-    title: 'Mobile',
-    type: 'item',
-    url: 'mobiles',
-  }
-  // ]
-  // },
+    id: 'electronics',
+    title: 'Electronics',
+    type: 'collapse',
+    children: [
+      {
+        id: 'mobiles',
+        title: 'Mobile',
+        icon: 'monitor',
+        url: 'mobiles',
+      },
+    ]
+  },
 ];

@@ -10,24 +10,25 @@
         </div>
       </div>
       <div class="sideNav" *ngIf="loginType =='admin'">
-        <ul class="sideNav-content" *ngIf="loginType == 'admin'">
-          <li class="content-list" *ngFor="let adminSidebar of adminMenu">
-            <div class="title" [routerLink]="[adminSidebar?.url]">
-              <a>{{adminSidebar?.title}}</a>
+        <ul class="sideNav-content">
+          <li class="content-list" *ngFor="let adminSideBar of adminMenu">
+            <div class="title" [routerLink]="[adminSideBar?.url]">
+              <div>
+                <a>{{adminSideBar?.title}}</a>
+              </div>
             </div>
           </li>
         </ul>
       </div>
       <div class="sideNav" *ngIf="loginType=='user'">
-        <ul class="sideNav-content">
-          <li class="content-list" *ngFor="let userSideBar of userMenu">
-            <div class="title" [routerLink]="[userSideBar?.url]">
-              <div>
-                <a>{{userSideBar?.title}}</a>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <smart-tree #tree id="tree">
+          <smart-tree-items-group *ngFor="let userSideBar of userMenu">
+            {{userSideBar?.title}}
+            <smart-tree-item *ngFor="let children of userSideBar?.children" [routerLink]="children?.url">
+              {{children?.title}}
+            </smart-tree-item>
+          </smart-tree-items-group>
+        </smart-tree>
       </div>
     </div>
   </div>

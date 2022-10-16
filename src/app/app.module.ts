@@ -23,6 +23,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ErrorInterceptor } from './auth/helpers/error-interceptor.interceptor';
+import { TreeModule } from '@smart-webcomponents-angular/tree';
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +37,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -46,8 +51,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    NgbModule
-
+    NgbModule,
+    TreeModule
   ],
   providers: [
     LayoutService,
@@ -56,6 +61,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       useClass: InterceptorInterceptor,
       multi: true,
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -10,7 +11,7 @@ export class AuthService {
 
   private baseUrl = environment.apiUrl + '/login';
   private register = environment.apiUrl + '/register';
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   postlogin(data) {
     return this.httpClient.post<any>(`${this.baseUrl}`, data).pipe(map(user => {
@@ -31,5 +32,12 @@ export class AuthService {
   }
   isLogin() {
     return !!localStorage.getItem('loggedIn');
+  }
+  logout() {
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('userDetail');
+
+    localStorage.removeItem('loginType');
+    this.router.navigate(['/auth/login']);
   }
 }
