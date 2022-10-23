@@ -1,0 +1,60 @@
+<section *ngIf="showMobileForm == false">
+  <div class="forgot">
+    <div class="content">
+      <div class="forgotBox">
+        <form autocomplete="off" #ForgotForm="ngForm" (ngSubmit)="(ForgotForm.form.valid) && forgotPassword()">
+          <h2>Create Password</h2>
+          <div class="forgotInputBox">
+            <input type="password" required minlength="2" maxlength="50" [(ngModel)]="forgotForm.newPassword"
+              name="newPassword" #NewPassword="ngModel" [class.error]="ForgotForm.submitted && NewPassword.invalid" />
+            <span>Conform Password</span>
+            <i></i>
+          </div>
+          <span class="m-1" *ngIf="ForgotForm.submitted && NewPassword.invalid">
+            <small class="form-text" *ngIf="NewPassword.errors">
+              Enter your new password</small>
+          </span>
+          <div class="forgotInputBox">
+            <input type="password" required minlength="2" maxlength="15" [(ngModel)]="forgotForm.reTypePassword"
+              name="reTypePassword" #RetypePassword="ngModel"
+              [class.error]="ForgotForm.submitted && RetypePassword.invalid" />
+            <span>Re-Type Password</span>
+            <i></i>
+          </div>
+          <span class="m-1" *ngIf="ForgotForm.submitted && RetypePassword.invalid">
+            <small class="form-text" *ngIf="RetypePassword.errors">
+              Enter your new password</small>
+          </span>
+          <div class="newPassword">
+            <button type="submit" class="forgotButton">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="showMobileForm">
+  <div class="mobile">
+    <div class="content">
+      <div class="mobileForm box">
+        <form autocomplete="off" #mobileForm="ngForm" (ngSubmit)="mobileForm.form.valid && sendtoMobile()">
+          <h2>Forget Passowrd</h2>
+          <div class="mobileInputBox">
+            <input type="text" minlength="2" maxlength="10" [(ngModel)]="mobile.mobileNumber" name="mobileNumber"
+              #mobile="ngModel" required [class.error]="mobileForm.submitted && mobile.invalid" />
+            <span>Enter your mobile number</span>
+            <i></i>
+          </div>
+          <span class="m-1" *ngIf="mobileForm.submitted && mobile.invalid">
+            <small class="form-text" *ngIf="mobile.errors">
+              Enter your mobile number</small>
+          </span>
+          <div class="toMobile">
+            <button type="submit" class="mobileButton">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

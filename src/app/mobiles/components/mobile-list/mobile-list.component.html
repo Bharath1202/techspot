@@ -1,0 +1,35 @@
+<div class="mobile">
+  <div class="">
+    <div class="mobiles">
+      <div class="mobileBar">
+        <div class="col-md-6 col-lg-4 col" *ngFor="let mobileItems of mobileList">
+          <div class="card">
+            <a href="#" [routerLink]="['/home/mobiles/view']" [queryParams]="{id:mobileItems._id}">
+              <div class="card-body">
+                <div class="image">
+                  <img *ngIf="mobileItems?.imageUrl" [src]="mobileItems?.imageUrl" alt="" />
+                  <h3>{{mobileItems?.mobileName}}</h3>
+                  <span>{{mobileItems?.mobileColor}}</span>
+                  <br />
+                  <span>{{mobileItems?.storage}}</span>
+                </div>
+                <br />
+                <div class="price">
+                  <div class="rupee">
+                    <sup>&#8377;</sup>
+                  </div>
+                  <div>
+                    <h4>{{mobileItems?.mobilePrice}}</h4>
+                  </div>
+                  <div class="offer">
+                    <sub *ngIf="mobileItems?.mobileOffer">{{'(' + mobileItems?.mobileOffer + ')'}}% Offer</sub>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

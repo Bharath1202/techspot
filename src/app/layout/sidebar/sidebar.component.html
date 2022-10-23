@@ -1,0 +1,35 @@
+<mat-nav-list class="pt-0" *ngIf="showSidebar">
+  <div class="sideNav">
+    <div class="sideNav-container">
+      <div class="logo-container">
+        <div class="logo">
+          <img src="../../../assets/images/logo/TS.png" class="center" />
+        </div>
+        <div class="logo-content">
+          <h4>TECH SPOT</h4>
+        </div>
+      </div>
+      <div class="sideNav" *ngIf="loginType =='admin'">
+        <ul class="sideNav-content">
+          <li class="content-list" *ngFor="let adminSideBar of adminMenu">
+            <div class="title" [routerLink]="[adminSideBar?.url]">
+              <div>
+                <a>{{adminSideBar?.title}}</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="sideNav" *ngIf="loginType=='user'">
+        <smart-tree #tree id="tree">
+          <smart-tree-items-group *ngFor="let userSideBar of userMenu">
+            {{userSideBar?.title}}
+            <smart-tree-item *ngFor="let children of userSideBar?.children" [routerLink]="children?.url">
+              {{children?.title}}
+            </smart-tree-item>
+          </smart-tree-items-group>
+        </smart-tree>
+      </div>
+    </div>
+  </div>
+</mat-nav-list>

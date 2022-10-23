@@ -1,0 +1,63 @@
+#electronics {
+    .elecetonics-content {
+        padding: 2rem 1.5rem 0rem 1.5rem;
+
+        .product-details {
+            display: flex;
+
+            .media {
+                display: flex;
+
+                .uploadImage {
+                    border: none;
+                    outline: none;
+                    background: transparent;
+
+                    .changeProfile {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+
+            .product-description {
+                display: flex;
+                margin: 2rem 0 0 2rem;
+
+                .mobileName,
+                .mobilePrice {
+                    margin-right: 1rem;
+                }
+            }
+
+            .product-edit {
+                .edit-button {
+                    width: 6rem;
+                    margin-right: 1rem;
+
+                }
+            }
+        }
+    }
+
+    .electronicsBtn {
+        display: flex;
+        justify-content: end;
+
+        button {
+            margin-left: 1rem;
+            border-radius: 5px;
+        }
+    }
+}
+
+.offers {
+    margin: 1rem 0;
+
+    button {
+        border-radius: 11px;
+        border: none;
+        outline: none;
+        margin: 0 3%;
+        color: #fff;
+    }
+}

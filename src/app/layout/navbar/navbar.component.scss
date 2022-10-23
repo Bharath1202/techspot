@@ -1,0 +1,70 @@
+@import '../../color.scss';
+
+.container {
+  max-width: 96%;
+
+  .row {
+    position: relative;
+
+    .navbar-card {
+      margin-top: 2%;
+      border-radius: 7px;
+      box-shadow: 1px 1px 10px -3px;
+
+      .navbar-body {
+        display: flex;
+        justify-content: end;
+        padding-right: 0;
+
+        .user-icon-image {
+          width: 2rem;
+          height: 2rem;
+        }
+
+        button {
+          margin: 0.5rem 0;
+          border: none;
+        }
+
+        .user-avatar {
+          font-size: large;
+          animation: 1s linear infinite;
+
+          .badge {
+            font-size: 10px;
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.navbar-body div:nth-of-type(1) {
+  flex-grow: 0.02;
+}
+
+.dropdown:hover ul {
+  list-style: none;
+  display: block;
+  padding: 1rem 0rem 0 1rem;
+  position: absolute;
+  background-color: $White;
+  transform: translateX(-38px);
+  width: 6.5rem;
+  z-index: 1;
+
+  li {
+    margin: 0 0 1rem 0;
+    cursor: pointer;
+  }
+}
+
+li i {
+  margin: 0 0.3rem 0;
+}

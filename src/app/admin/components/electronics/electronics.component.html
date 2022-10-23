@@ -1,0 +1,191 @@
+<div id="electronics">
+    <div class="elecetonics-content">
+        <form #electronicsForm="ngForm" (ngSubmit)="(electronicsForm.form.valid) && saveElectronics(electronicsForm)">
+            <div class="card">
+                <div class="card-body product-details">
+                    <div>
+                        <div class="media mb-2 col-md-3">
+                            <div class="image">
+                                <img src="../../../../assets/images/000.png" class="users-avatar-shadow rounded "
+                                    alt="product Image" />
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-evenly mt-1 px-0">
+                            <label class="btn btn-primary mr-75 mb-0" for="change-picture">
+                                <span class="d-none d-sm-block">Add</span>
+                                <input class="form-control" type="file" name="imageUrl" id="change-picture" hidden
+                                    accept="*.png.jpg" (change)="upload($event)" />
+                                <span class="d-block d-sm-none">
+                                    <i class="mr-0" data-feather="edit"></i>
+                                </span>
+                            </label>
+                            <button type="button" class="btn btn-outline-secondary d-none d-sm-block"
+                                (click)="removeImg()" rippleEffect>Remove</button>
+                            <button class="btn btn-outline-secondary d-block d-sm-none">
+                                <i class="mr-0" data-feather="trash-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-description col-md-6">
+                        <div>
+                            <div class="form-group mobileName">
+                                <label>Mobile Name<span class="required">*</span></label>
+                                <input type="text" placeholder="MobileName" minlength="2" maxlength="10"
+                                    class="forms-control" [(ngModel)]="electronics.mobileName" name="mobileName"
+                                    #MobileName="ngModel" [class.error]="electronicsForm.submitted && !MobileName.valid"
+                                    required>
+                                <span *ngIf="electronicsForm.submitted && !MobileName.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
+                            </div>
+                            <div class="form-group mobilePrice">
+                                <label>Mobile Price<span class="required">*</span></label>
+                                <input type="text" appNumberValidation placeholder="Mobile Price" minlength="2"
+                                    maxlength="10" class="forms-control" [(ngModel)]="electronics.mobilePrice"
+                                    name="mobilePrice" #MobilePrice="ngModel"
+                                    [class.error]="electronicsForm.submitted && !MobilePrice.valid" required>
+                                <span *ngIf="electronicsForm.submitted && !MobilePrice.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group ">
+                                <label>Model Name<span class="required">*</span></label>
+                                <input type="text" placeholder="Model Name" minlength="2" maxlength="10"
+                                    class="forms-control" [(ngModel)]="electronics.mobileModelName"
+                                    name="mobileModelName" #ModelName="ngModel"
+                                    [class.error]="electronicsForm.submitted && !ModelName.valid" required>
+                                <span *ngIf="electronicsForm.submitted && !ModelName.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
+                            </div>
+                            <div class="form-group ">
+                                <label>Model Number<span class="required">*</span></label>
+                                <input type="text" placeholder="Model Number" minlength="2" maxlength="16"
+                                    class="forms-control" [(ngModel)]="electronics.modelNumber" name="modelNumber"
+                                    #modelNumber="ngModel"
+                                    [class.error]="electronicsForm.submitted && !modelNumber.valid" required>
+                                <span *ngIf="electronicsForm.submitted && !modelNumber.valid">
+                                    <small class="form-text text-danger">Mobile Name is required</small>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>Brand Name</label>
+                            <input type="text" placeholder="Brand Name" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.brandName" name="brandName">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Mobile Color</label>
+                            <input type="text" placeholder="Mobile Color" minlength="2" maxlength="20"
+                                class="forms-control" [(ngModel)]="electronics.mobileColor" name="mobileColor">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Wirless Carrier</label>
+                            <input type="text" placeholder="Wirless Carrier" minlength="2" maxlength="20"
+                                class="forms-control" [(ngModel)]="electronics.wirlessCarrier" name="wirlessCarrier">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Operating System</label>
+                            <input type="text" placeholder="Operating System" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.operatingSystem" name="operatingSystem">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Technology</label>
+                            <input type="text" placeholder="Technology" minlength="2" maxlength="5"
+                                class="forms-control" [(ngModel)]="electronics.technology" name="technology">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Internet Connectivity</label>
+                            <input type="text" placeholder="Internet Connectivity" minlength="2" maxlength="50"
+                                class="forms-control" [(ngModel)]="electronics.internetConnectivity"
+                                name="internetConnectivity">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Sim Type</label>
+                            <input type="text" placeholder="Sim Type" minlength="2" maxlength="10" class="forms-control"
+                                [(ngModel)]="electronics.simType" name="simType">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Display Size</label>
+                            <input type="text" placeholder="MobileName" minlength="2" maxlength="30"
+                                class="forms-control" [(ngModel)]="electronics.displaySize" name="displaySize">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Display Technology</label>
+                            <input type="text" placeholder="MobileName" minlength="2" maxlength="50"
+                                class="forms-control" [(ngModel)]="electronics.displaytechnology"
+                                name="displaytechnology">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Resolution</label>
+                            <input type="text" placeholder="Resolution" minlength="2" maxlength="30"
+                                class="forms-control" [(ngModel)]="electronics.resolution" name="resolution">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Item Wight</label>
+                            <input type="text" placeholder="Item Wight" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.itemWight" name="itemWight">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Processor Type</label>
+                            <input type="text" placeholder="Processor Type" minlength="2" maxlength="30"
+                                class="forms-control" [(ngModel)]="electronics.processorType" name="processorType">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Processor Core</label>
+                            <input type="text" placeholder="Processor Core" minlength="2" maxlength="40"
+                                class="forms-control" [(ngModel)]="electronics.processorCore" name="processorCore">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>RAM</label>
+                            <input type="text" placeholder="RAM" minlength="2" maxlength="10" class="forms-control"
+                                [(ngModel)]="electronics.ram" name="ram">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Storage</label>
+                            <input type="text" placeholder="Storage" minlength="2" maxlength="100" class="forms-control"
+                                [(ngModel)]="electronics.storage" name="storage">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Battery</label>
+                            <input type="text" placeholder="Battery" minlength="2" maxlength="80" class="forms-control"
+                                [(ngModel)]="electronics.battery" name="battery">
+                        </div>
+                        <div class="col-12">
+                            <label>Product Decsription</label>
+                            <textarea placeholder="Product Decsription" minlength="2" rows="5" maxlength="5000"
+                                class="forms-control" [(ngModel)]="electronics.productDecsription"
+                                name="productDecsription"></textarea>
+                        </div>
+                        <div class="form-group col-md-4 mt-4">
+                            <label>Mobile Offer</label>
+                            <div class="form-group offers">
+                                <button type="button" class="btn btn-primary" [value]="5"
+                                    (click)="offer($event)">5%</button>
+                                <button type="button" class="btn btn-secondary" [value]="10"
+                                    (click)="offer($event)">10%</button>
+                                <button type="button" class="btn btn-info" [value]="15"
+                                    (click)="offer($event)">15%</button>
+                                <button type="button" class="btn btn-warning" [value]="20"
+                                    (click)="offer($event)">20%</button>
+                            </div>
+                        </div>
+                        <div class="electronicsBtn mt-2">
+                            <button type="submit" class="btn btn-primary">{{buttonName}}</button>
+                            <button type="button" class="btn btn-secondary ml-3"
+                                [routerLink]="['/home/admin/electronicsList']">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
