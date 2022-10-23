@@ -6,6 +6,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TreeModule } from '@smart-webcomponents-angular/tree';
+import { TooltipModule } from '@smart-webcomponents-angular/tooltip';
+
 
 @NgModule({
   declarations: [],
@@ -17,6 +19,7 @@ import { TreeModule } from '@smart-webcomponents-angular/tree';
     MatIconModule,
     MatSidenavModule,
     TreeModule,
+    TooltipModule
   ],
 })
 export class LayoutModule { }

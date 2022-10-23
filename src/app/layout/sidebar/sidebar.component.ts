@@ -5,10 +5,9 @@ import {
   ViewEncapsulation,
   EventEmitter,
   ViewChild,
+  Input,
 } from '@angular/core';
 import { Menu, Menu1 } from 'src/app/menu/menu';
-// import { MenuItem } from 'src/app/menu/menuItem';
-import { TreeComponent } from '@smart-webcomponents-angular/tree';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,7 +16,7 @@ import { TreeComponent } from '@smart-webcomponents-angular/tree';
   encapsulation: ViewEncapsulation.None,
 })
 export class SidebarComponent implements OnInit {
-  @ViewChild('tree', { read: TreeComponent, static: false }) tree: TreeComponent;
+  collapsed = false;
   public loginType;
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
   public class = 0;

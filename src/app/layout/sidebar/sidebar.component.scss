@@ -50,8 +50,6 @@
 
     a {
       text-decoration: none;
-      // cursor: pointer;
-
     }
 
     .content-list {
@@ -76,8 +74,10 @@
 }
 
 
+#sideBar {
+  margin: 3rem 0rem 0 2rem;
+}
 
-/* fallback */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -122,21 +122,3 @@ smart-tree i {
     height: 100%;
   }
 }
-
-// .smart-element {
-//   background: none;
-// }
-
-// .smart-tree.smart-element {
-//   border: none;
-// }
-
-// .smart-tree-item-label-container {
-//   border: none;
-//   background-color: #696969 !important;
-//   color: #fff !important;
-// }
-
-// .smart-tree-item-label-container:hover {
-//   span {}
-// }

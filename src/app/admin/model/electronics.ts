@@ -24,4 +24,8 @@ export class Electronics {
     ram?: string;
     storage?: string;
     battery?: string;
+    audioJack?: string;
+    manufacturer?: string;
+    countryOfOrigin?: string;
+    specialFeatures?: string;
 }

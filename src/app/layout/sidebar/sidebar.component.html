@@ -20,16 +20,25 @@
           </li>
         </ul>
       </div>
-      <div class="sideNav" *ngIf="loginType=='user'">
-        <smart-tree #tree id="tree">
-          <smart-tree-items-group *ngFor="let userSideBar of userMenu">
-            {{userSideBar?.title}}
-            <smart-tree-item *ngFor="let children of userSideBar?.children" [routerLink]="children?.url">
-              {{children?.title}}
-            </smart-tree-item>
-          </smart-tree-items-group>
-        </smart-tree>
-      </div>
+      <ng-container>
+        <aside id="sideBar" class="sidebar" *ngIf="loginType=='user'">
+          <div class="logo-holder">
+            <div id="toggleButton" class="toggle-button">
+            </div>
+          </div>
+          <div class="tree-holder">
+            <smart-tree #tree id="tree" expand-mode="single" selected-indexes='["1.0"]' selection-mode="one"
+              selection-target="leaf" toggle-element-position="far" toggle-mode="click">
+              <smart-tree-items-group *ngFor="let userSideBar of userMenu">
+                {{userSideBar?.title}}
+                <smart-tree-item *ngFor="let children of userSideBar?.children" [routerLink]="children?.url">
+                  {{children?.title}}
+                </smart-tree-item>
+              </smart-tree-items-group>
+            </smart-tree>
+          </div>
+        </aside>
+      </ng-container>
     </div>
   </div>
 </mat-nav-list>

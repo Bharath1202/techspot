@@ -159,6 +159,27 @@
                             <input type="text" placeholder="Battery" minlength="2" maxlength="80" class="forms-control"
                                 [(ngModel)]="electronics.battery" name="battery">
                         </div>
+                        <div class="form-group col-md-4">
+                            <label>Audio Jack</label>
+                            <input type="text" placeholder="Audio Jack" minlength="5" maxlength="5"
+                                class="forms-control" [(ngModel)]="electronics.audioJack" name="audioJack">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Special Features</label>
+                            <input type="text" placeholder="Special Features" minlength="5" maxlength="100"
+                                class="forms-control" [(ngModel)]="electronics.specialFeatures" name="specialFeatures">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>Manufacturer</label>
+                            <input type="text" placeholder="Manufacturer" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.manufacturer" name="manufacturer">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Country Of Origin</label>
+                            <input type="text" placeholder="Country Of Origin" minlength="2" maxlength="10"
+                                class="forms-control" [(ngModel)]="electronics.countryOfOrigin" name="countryOfOrigin">
+                        </div>
                         <div class="col-12">
                             <label>Product Decsription</label>
                             <textarea placeholder="Product Decsription" minlength="2" rows="5" maxlength="5000"

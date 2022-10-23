@@ -17,7 +17,7 @@
             <div class="mobilePrice">
               <h4><i class="fa fa-inr" aria-hidden="true"></i>{{mobileList?.mobilePrice}}</h4>
             </div>
-            <div class="mobileOffers">
+            <div class="mobileOffers" *ngIf="mobileList?.mobileOffer">
               <h4>{{'('+mobileList?.mobileOffer+')'}} %</h4>
             </div>
           </div>
@@ -34,19 +34,88 @@
 
   <div class="detail-description">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="additionalDescription">
           <div>
             <smart-tabs class="m-0 w-100">
-              <div class="description-card">
+              <div class="description-card col-lg-12">
                 <div class="card-body">
                   <smart-tab-item label="Additional Description" class="tabs">
-
-                    <h4>Card with tabs</h4>
-                    <p>Nulla tempus neque id eros blandit, id congue sem ultricies. Nulla molestie viverra aliquet.
-                      Praesent feugiat mollis lacus, quis sagittis leo.</p>
+                    <div class="responsive col-lg-12 ">
+                      <table class="table table-bordered table-card">
+                        <tbody>
+                          <tr>
+                            <td>OS</td>
+                            <td>{{mobileList?.operatingSystem | titlecase}}</td>
+                          </tr>
+                          <tr>
+                            <td>RAM</td>
+                            <td>{{mobileList?.ram}}</td>
+                          </tr>
+                          <tr>
+                            <td>Display Technology</td>
+                            <td>{{mobileList?.displaytechnology | titlecase}}</td>
+                          </tr>
+                          <tr>
+                            <td>Display Size</td>
+                            <td>{{mobileList?.displaySize}}</td>
+                          </tr>
+                          <tr>
+                            <td>Battery</td>
+                            <td>{{mobileList?.battery}}</td>
+                          </tr>
+                          <tr>
+                            <td>Storage</td>
+                            <td>{{mobileList?.storage}}</td>
+                          </tr>
+                          <tr>
+                            <td>Processor Type</td>
+                            <td>{{mobileList?.processorType | titlecase}}</td>
+                          </tr>
+                          <tr>
+                            <td>Processor Core</td>
+                            <td>{{mobileList?.processorCore | titlecase}}</td>
+                          </tr>
+                          <tr>
+                            <td>Display Size</td>
+                            <td>{{mobileList?.displaySize}}</td>
+                          </tr>
+                          <tr>
+                            <td>Special Features</td>
+                            <td>{{mobileList?.specialFeatures}}</td>
+                          </tr>
+                          <tr>
+                            <td>Sim Type</td>
+                            <td>{{mobileList?.simType | titlecase}}</td>
+                          </tr>
+                          <tr>
+                            <td>Internet Connectivity</td>
+                            <td>{{mobileList?.internetConnectivity}}</td>
+                          </tr>
+                          <tr>
+                            <td>Resolution</td>
+                            <td>{{mobileList?.resolution}}</td>
+                          </tr>
+                          <tr>
+                            <td>Audio Jack</td>
+                            <td>{{mobileList?.audioJack}}</td>
+                          </tr>
+                          <tr>
+                            <td>Wirless Carrier</td>
+                            <td>{{mobileList?.wirlessCarrier}}</td>
+                          </tr>
+                          <tr>
+                            <td>Item Wight</td>
+                            <td>{{mobileList?.itemWight}}</td>
+                          </tr>
+                          <tr>
+                            <td>Manufacturer</td>
+                            <td>{{mobileList?.manufacturer | titlecase}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </smart-tab-item>
-
                   <smart-tab-item label="Reviews">
                     <h4>Card with tabs</h4>
                     <p>Nunc lacus mi, fringilla et dignissim eu, pharetra sit amet sapien. Praesent lectus tellus,
@@ -55,10 +124,10 @@
                   </smart-tab-item>
                 </div>
               </div>
-
             </smart-tabs>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
