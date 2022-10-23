@@ -1,30 +1,64 @@
 <div id="mobile-content-view">
   <div class="view-content">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-6">
         <div class="mobile-image">
-          <img [src]="mobileList.imageUrl" alt="" />
+          <img [src]="mobileList?.imageUrl" *ngIf="mobileList?.imageUrl" alt="mobile" class="mobileView" />
         </div>
       </div>
-      <div class="col-md-9 mobile-view">
+      <div class="col-md-6">
         <div class="mobile-details">
           <div class="mobile-title">
-            <h3>{{mobileList.mobileName}} {{'(' + mobileList.mobileColor + ', ' + mobileList?.ram + ')'}}
-              {{mobileList?.storage}}
+            <h3>{{mobileList?.mobileName | titlecase}} {{'(' + mobileList?.mobileColor + ', ' + mobileList?.ram + ')'}}
+              {{mobileList?.storage | titlecase}}
             </h3>
           </div>
-          <div class="d-flex">
-            <div id="mobile-rating">
-              <span class="rating-star">
-                <small>4.3 <i class="fa fa-star"></i></small>
-              </span>
+          <div class="mbilePriceList">
+            <div class="mobilePrice">
+              <h4><i class="fa fa-inr" aria-hidden="true"></i>{{mobileList?.mobilePrice}}</h4>
             </div>
-            <div>
-              <img src="../../../../assets/logo/logo.png" class="assured-img" alt="assured" />
+            <div class="mobileOffers">
+              <h4>{{'('+mobileList?.mobileOffer+')'}} %</h4>
             </div>
+          </div>
+          <div class="mobileDescription">
+            <h4>{{mobileList?.productDescription | titlecase}}</h4>
+          </div>
+          <div class="toCart">
+            <button type="button" class="btn btn-primary" (click)="addToCart()">Add To Cart</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="detail-description">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="additionalDescription">
+          <div>
+            <smart-tabs class="m-0 w-100">
+              <div class="description-card">
+                <div class="card-body">
+                  <smart-tab-item label="Additional Description" class="tabs">
+
+                    <h4>Card with tabs</h4>
+                    <p>Nulla tempus neque id eros blandit, id congue sem ultricies. Nulla molestie viverra aliquet.
+                      Praesent feugiat mollis lacus, quis sagittis leo.</p>
+                  </smart-tab-item>
+
+                  <smart-tab-item label="Reviews">
+                    <h4>Card with tabs</h4>
+                    <p>Nunc lacus mi, fringilla et dignissim eu, pharetra sit amet sapien. Praesent lectus tellus,
+                      iaculis
+                      ut commodo id, auctor quis velit.</p>
+                  </smart-tab-item>
+                </div>
+              </div>
+
+            </smart-tabs>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

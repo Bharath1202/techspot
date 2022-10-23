@@ -16,7 +16,4 @@ export class LayoutService {
   sendData(data: number) {
     this.subject.next((this.counter += 1));
   }
-  data(data: number) {
-    this.subject.next(this.counter -= 1)
-  }
 }

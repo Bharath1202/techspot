@@ -9,22 +9,7 @@ import { LayoutService } from '../service/layout.service';
 export class HomePageComponent implements OnInit {
   public data: any;
   public opened = true;
-  constructor(private layoutService: LayoutService) {}
+  constructor(private layoutService: LayoutService) { }
   ngOnInit(): void {
-    this.layoutService.subject.subscribe((res) => {
-      console.log(res);
-      // if (res == 0) {
-      //   this.number = false
-      // }
-      // else if (res == 1) {
-      //   this.number = true
-      // }
-    });
-  }
-  btn() {
-    this.layoutService.sendData(this.data);
-  }
-  buyNow() {
-    this.layoutService.data(this.data);
   }
 }

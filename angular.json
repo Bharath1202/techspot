@@ -42,7 +42,12 @@
               "src/styles.scss",
               "./node_modules/@smart-webcomponents-angular/tree/styles/smart.base.css",
               "./node_modules/@smart-webcomponents-angular/tree/styles/smart.tree.css",
-              "./node_modules/@smart-webcomponents-angular/tree/styles/smart.common.css"
+              "./node_modules/@smart-webcomponents-angular/tree/styles/smart.common.css",
+              "node_modules/@smart-webcomponents-angular/card/styles/smart.base.css",
+              "node_modules/@smart-webcomponents-angular/card/styles/smart.card.css",
+              "node_modules/@smart-webcomponents-angular/card/styles/smart.common.css",
+              "node_modules/@smart-webcomponents-angular/tabs/styles/smart.base.css",
+              "node_modules/@smart-webcomponents-angular/tabs/styles/smart.tabs.css"
             ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js"

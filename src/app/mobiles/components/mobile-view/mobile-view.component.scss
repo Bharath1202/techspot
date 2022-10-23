@@ -1,23 +1,90 @@
+@import "../../../color.scss";
+
+
 #mobile-content-view {
   padding: 3rem;
-  .mobile-view {
-    padding-right: 23rem;
+
+  h4 {
+    margin: 0% 0% 2%;
+  }
+
+  #mobile-rating {
+    margin-top: 0.5%;
+  }
+
+  .rating-star {
+    padding: 0.3rem;
+    background: #388e3c;
+    border-radius: 4px;
+
+    small {
+      color: $White;
+    }
+  }
+
+  .assured-img {
+    width: 4rem;
+  }
+}
+
+.mobileView {
+  width: 30rem;
+}
+
+.mobile-details {
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .mbilePriceList {
+    display: flex;
+
+    .mobilePrice {
+      margin: 0 0.7rem 0;
+    }
+
+    .mobileOffers {
+      color: $Red;
+    }
+  }
+
+  .mobileDescription {
+    margin: 1rem 0;
+
     h4 {
-      margin: 0% 0% 2%;
+      line-height: 2rem;
+      font-family: unset;
     }
-    #mobile-rating {
-      margin-top: 0.5%;
+  }
+
+  .toCart {
+    margin: 3rem 0 0;
+  }
+}
+
+.detail-description {
+  margin: 3rem 0;
+
+  .additionalDescription {
+    width: 65rem;
+
+    .description-card {
+      height: 25rem;
     }
-    .rating-star {
-      padding: 0.3rem;
-      background: #388e3c;
-      border-radius: 4px;
-      small {
-        color: #fff;
-      }
+
+    .smart-container {
+      max-height: 25rem;
     }
-    .assured-img {
-      width: 4rem;
+
+    .smart-header {
+      background: none;
+      border: none;
+      margin: 0 0 3rem 0;
+    }
+
+    .smart-tab-label-container {
+      margin: 0 1rem 0 0 !important;
+      // background: none;
     }
   }
 }
