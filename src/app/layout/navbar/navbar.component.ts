@@ -29,4 +29,10 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
+  // switch(event) {
+  //   console.log(event.target.value);
+
+  //   const theme = event.target.value;
+  //   document.getElementsByTagName('meta')[2].content = theme;
+  // }
 }

@@ -27,6 +27,7 @@ import { ErrorInterceptor } from './auth/helpers/error-interceptor.interceptor';
 import { TreeModule } from '@smart-webcomponents-angular/tree';
 import { CommonModule } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     AppComponent,

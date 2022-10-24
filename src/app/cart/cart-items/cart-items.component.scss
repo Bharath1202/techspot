@@ -1,19 +1,16 @@
-.content {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  #cart-items {
-    margin-top: 8%;
-    h6 {
-      font-size: smaller;
+#cart {
+  padding: 1.5rem;
+
+  .shopping-cart-title {
+    h4 {
+      font-size: 1.5rem;
+      font-family: 'smart-icons';
     }
   }
-  .button {
+
+  .shopping-cart-items {
+    margin: 3rem 0 0 0;
     display: flex;
-    justify-content: center;
-    button:focus {
-      box-shadow: none;
-    }
+    justify-content: space-between;
   }
 }

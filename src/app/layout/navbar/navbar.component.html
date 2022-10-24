@@ -3,11 +3,17 @@
     <div class="card navbar-card">
       <div class="card-body navbar-body">
         <div class="user-avatar" *ngIf="loginType == 'user'">
-          <button type="button" [routerLink]="['/cart']">
+          <button type="button" [routerLink]="['cart']">
             <i class="fas fa-cart-plus cart"></i>
             <div class="badge bg-danger">{{ counter }}</div>
           </button>
         </div>
+        <!-- <div>
+          <select id="theme" (change)="switch($event)">
+            <option value="light">light</option>
+            <option value="dark">dark</option>
+          </select>
+        </div> -->
         <div class="dropdown">
           <div class="image">
             <img [src]="currentUser?.imageUrl" alt="user-icon" class="user-icon-image" />

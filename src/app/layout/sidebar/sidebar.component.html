@@ -22,10 +22,6 @@
       </div>
       <ng-container>
         <aside id="sideBar" class="sidebar" *ngIf="loginType=='user'">
-          <div class="logo-holder">
-            <div id="toggleButton" class="toggle-button">
-            </div>
-          </div>
           <div class="tree-holder">
             <smart-tree #tree id="tree" expand-mode="single" selected-indexes='["1.0"]' selection-mode="one"
               selection-target="leaf" toggle-element-position="far" toggle-mode="click">

@@ -21,6 +21,7 @@ export class MobileViewComponent implements OnInit {
         this.getSingleMobile();
       }
     })
+
   }
 
   ngOnInit() {
@@ -29,10 +30,7 @@ export class MobileViewComponent implements OnInit {
 
   getSingleMobile() {
     this.mobileService.getSingleMobile(this.id).subscribe((res: any) => {
-      console.log('mobile', res);
-
       this.mobileList = res?.result;
-      console.log(this.mobileList);
     }, (error) => {
       console.log(error);
     })
@@ -43,7 +41,8 @@ export class MobileViewComponent implements OnInit {
   btn() {
     this.layoutService.sendData(this.data);
   }
-  addToCart() {
-    this.layoutService.sendData(this.data);
+  addToCart(id) {
+
+    // this.layoutService.sendData(this.data);
   }
 }
