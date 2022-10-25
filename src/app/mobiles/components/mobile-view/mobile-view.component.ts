@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
+import { CartService } from '../../service/cart.service';
 import { MobileService } from '../../service/mobile.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class MobileViewComponent implements OnInit {
   public data: any;
   public id;
   public mobileList;
-  constructor(private activatedRute: ActivatedRoute, private mobileService: MobileService, private layoutService: LayoutService) {
+  public productQuantity:number=1;
+  constructor(private activatedRute: ActivatedRoute, private cartService:CartService,private router: Router, private mobileService: MobileService, private layoutService: LayoutService) {
     this.activatedRute.queryParams.subscribe(res => {
       this.id = res['id']
       if (res['id']) {
@@ -41,8 +43,18 @@ export class MobileViewComponent implements OnInit {
   btn() {
     this.layoutService.sendData(this.data);
   }
-  addToCart(id) {
-
-    // this.layoutService.sendData(this.data);
+  addToCart(data) {
+    let details={
+      product:data?._id,
+      price:data?.mobilePrice,
+      quantity:this.productQuantity
+    }
+    console.log(details);
+    
+    this.cartService.addtoCart(details).subscribe((res: any) => {
+      console.log(res);
+    }, (error) => {
+      console.log(error);
+    })
   }
 }

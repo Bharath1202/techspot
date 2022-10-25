@@ -12,5 +12,54 @@
     margin: 3rem 0 0 0;
     display: flex;
     justify-content: space-between;
+
+    .addProduct {
+      button {
+        padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+        border-radius: 19px;
+        border: none;
+        margin: 0rem 1rem 0rem 1rem;
+      }
+    }
   }
+}
+
+
+.productTotal {
+  .subTotal {
+    display: flex;
+    justify-content: end;
+
+    .subTotal-title {
+      margin: 0 2rem 0;
+
+      h5 {
+        font-size: 1.2rem;
+      }
+    }
+
+    .totalItems {
+      margin: 0 2rem 0 0;
+      font-size: 1.2rem;
+    }
+  }
+
+}
+
+.line::before {
+  content: "";
+  display: block;
+  width: 270px;
+  float: right;
+  margin: 2rem 1rem 2rem 0;
+  height: 1px;
+  background-color: grey;
+}
+
+.shopping-cart-items div:nth-of-type(2) {
+  flex-grow: 1;
+}
+
+.shopping-cart-items div:nth-of-type(3) {
+  flex-grow: 0.71;
 }

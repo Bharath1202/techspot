@@ -3,7 +3,7 @@
     <div class="mobiles">
       <div class="mobileBar">
         <div class="col-md-6 col-lg-4 col" *ngFor="let mobileItems of mobileList">
-          <div class="card">
+          <div class="card mobileListCard">
             <a href="#" [routerLink]="['/home/mobiles/view']" [queryParams]="{id:mobileItems._id}">
               <div class="card-body">
                 <div class="image">

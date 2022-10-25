@@ -17,4 +17,5 @@ export class MobileService {
     const params = new HttpParams().set('_id', id);
     return this.httpCLient.get(`${this.baseUrl}/getSingleMobile`, { params })
   }
+
 }

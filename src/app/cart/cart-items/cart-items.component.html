@@ -1,28 +1,41 @@
-<div id="cart" *ngIf="cartMobile">
+<div id="cart" *ngIf="productList">
     <div class="shopping-cart-section card">
-        <div class="shopping-cart-content card-body">
+        <div class="shopping-cart-content card-body" *ngFor="let item of productList">
             <div class="shopping-cart-title">
                 <h4>Shoping Cart</h4>
             </div>
             <div class="shopping-cart-items">
                 <div class="cart-image">
-                    <img [src]="cartMobile?.imageUrl" width="150" *ngIf="cartMobile?.imageUrl" alt="mobile" />
+                    <img [src]="item?.imageUrl" width="150" *ngIf="item?.imageUrl" alt="mobile" />
                 </div>
                 <div class="cart-description">
-                    <h5>{{cartMobile?.mobileName}}</h5>
+                    <h3>{{item?.mobileName | titlecase}} {{'(' + item?.mobileColor + ', ' + item?.ram
+                        + ')'}}<br />
+                        {{item?.storage | titlecase}}
+                    </h3>
                 </div>
-                <div class="addroduct">
-                    <button type="button"><i class="fa fa-minus"></i></button>
+                <div class="addProduct">
+                    <button type="button" [disabled]="minus==true" (click)="decreaseQuantity(item?.quantity,item)"><i
+                            class="fa fa-minus"></i></button>
                     {{increaseProduct}}
-                    <button type="button"><i class="fa fa-plus"></i></button>
+                    <button type="button" (click)="increaseQuantity(item?.quantity,item)"><i
+                            class="fa fa-plus"></i></button>
                 </div>
                 <div class="totalCartValue">
-                    <i class="fa fa-inr" aria-hidden="true"></i> {{cartMobile?.mobilePrice}}
+                    <h3><i class="fa fa-inr" aria-hidden="true"></i>{{item?.mobilePrice}}</h3>
+                </div>
+            </div>
+        </div>
+        <span class="line"></span>
+        <div class="productTotal">
+            <div class="subTotal">
+                <div class="subTotal-title">
+                    <h5>SubTotal {{'('+productLength+ 'item'+')'}} </h5>
+                </div>
+                <div class="totalItems">
+                    <i class="fa fa-inr" aria-hidden="true"></i>{{subTotal}}
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="noItems">
-    <h5>No Items</h5>
 </div>
