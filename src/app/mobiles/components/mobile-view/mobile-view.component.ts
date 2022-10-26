@@ -15,8 +15,8 @@ export class MobileViewComponent implements OnInit {
   public data: any;
   public id;
   public mobileList;
-  public productQuantity:number=1;
-  constructor(private activatedRute: ActivatedRoute, private cartService:CartService,private router: Router, private mobileService: MobileService, private layoutService: LayoutService) {
+  public productQuantity: number = 1;
+  constructor(private activatedRute: ActivatedRoute, private cartService: CartService, private router: Router, private mobileService: MobileService, private layoutService: LayoutService) {
     this.activatedRute.queryParams.subscribe(res => {
       this.id = res['id']
       if (res['id']) {
@@ -44,13 +44,11 @@ export class MobileViewComponent implements OnInit {
     this.layoutService.sendData(this.data);
   }
   addToCart(data) {
-    let details={
-      product:data?._id,
-      price:data?.mobilePrice,
-      quantity:this.productQuantity
+    let details = {
+      product: data?._id,
+      price: data?.mobilePrice,
+      quantity: this.productQuantity
     }
-    console.log(details);
-    
     this.cartService.addtoCart(details).subscribe((res: any) => {
       console.log(res);
     }, (error) => {

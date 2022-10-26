@@ -15,7 +15,26 @@ export class CartService {
   getAllCart() {
     return this.httpClient.get(`${this.baseUrl}`)
   }
-  updateCart(data) {
+  updateCart(data, i) {
+    console.log('dta', data);
+
+    if (i == 1) {
+      if (data.quantity < data?.maxOrderQuantity) {
+
+        data.quantity++
+      } else {
+        console.log(' data.quantity', data.quantity);
+        alert("You Can't Add More product")
+
+      }
+    } else if (i == 2) {
+      if (data.quantity > 1) {
+        data.quantity--;
+      } else {
+        alert("You Can't Add More product")
+
+      }
+    }
     return this.httpClient.put(`${this.baseUrl}`, data)
   }
 }

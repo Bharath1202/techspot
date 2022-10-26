@@ -27,17 +27,23 @@ export class CartItemsComponent implements OnInit {
     this.getAllCart();
   }
   productLength;
+  total = 0;
+
+  price;
   getAllCart() {
     this.cartService.getAllCart().subscribe((res: any) => {
+      console.log('getAll', res);
       this.cartMobile = res?.result
       this.cartMobile.filter(res => {
         this.productList.push(res?.product);
-        console.log('this.productList', this.productList.length);
+        console.log('this.productList', this.productList);
         this.productLength = this.productList.length
-
-        this.subTotal = res?.product?.mobilePrice
-        console.log(this.subTotal);
-
+      })
+      let value = 0;
+      this.cartMobile.forEach(res => {
+        console.log('cart', res);
+        value += Number(res?.product?.mobilePrice) * Number(res?.quantity);
+        this.subTotal = value;
       })
     }, (error) => {
       console.log(error);
@@ -45,20 +51,30 @@ export class CartItemsComponent implements OnInit {
   }
 
   subTotal = 0;
-  increaseQuantity(quantity, data) {
+  increaseQuantity(data) {
     this.minus = false
-    quantity = this.increaseProduct++ + 1;
-    console.log(quantity);
-    this.subTotal = (data?.mobilePrice * quantity)
+
+    // quantity = this.increaseProduct++ + 1;
+    // console.log(quantity);
+
+
+    // console.log(details);
+    var i = 1;
+    this.cartService.updateCart(data, i);
+    this.subTotal = (data?.mobilePrice * data?.quantity)
   }
-  decreaseQuantity(quantity, data) {
-    quantity = this.increaseProduct-- - 1;
-    if (quantity == 1) {
-      this.minus = true
-    }
-    else {
-      this.minus = false
-    }
-    this.subTotal = (data?.mobilePrice * quantity)
+  decreaseQuantity(data) {
+    var i = 2;
+    this.cartService.updateCart(data, i);
+    // this.subTotal = (data?.mobilePrice - data?.quantity)
+
+    // quantity = this.increaseProduct-- - 1;
+    // if (quantity == 1 || quantity == 0) {
+    //   this.minus = true
+    // }
+    // else {
+    //   this.minus = false
   }
+  // this.subTotal = (data?.mobilePrice * quantity)
 }
+// }
