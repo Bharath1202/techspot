@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { colors } from 'src/app/colors.const';
-import { S3bucketService } from 'src/app/shared/service/s3bucket.service';
 import { environment } from 'src/environments/environment';
 import { DashboardService } from '../../service/dashboard.service';
 import { FileUploader, FileUploadModule } from 'ng2-file-upload';
@@ -31,12 +30,6 @@ export class DashboardComponent implements OnInit {
   public data;
   public total;
   public loginType;
-  public fileData;
-  public s3Url: string = environment.s3Url;
-  public uploader: FileUploader = new FileUploader({
-    url: environment.apiUrl,
-    isHTML5: true,
-  });
   ngOnInit(): void {
     this.loginType = localStorage.getItem('loginType')
     this.totalEarnings();
@@ -73,7 +66,7 @@ export class DashboardComponent implements OnInit {
     this.salesCountForWeek.pop();
   }
 
-  constructor(private dashboardService: DashboardService, private awss3service: S3bucketService) {
+  constructor(private dashboardService: DashboardService,) {
     this.revenueChartOptions = {
       chart: {
         height: 230,
@@ -306,40 +299,6 @@ export class DashboardComponent implements OnInit {
         },
       ],
     };
-  }
-
-  file;
-  folder;
-  uploadImage(event: any) {
-    if (event && event[0]) {
-      this.fileData = event;
-      const length = event.length;
-      this.file = this.fileData[0];
-      this.folder = 'vdochiper/';
-
-      this.awss3service.uploadFile(this.file, this.folder).then((data: any) => {
-        setTimeout(() => {
-          this.avatarImage = this.s3Url + this.folder + this.file.name;
-          console.log(this.avatarImage);
-
-        }, 2000);
-        this.uploadImage1(this.avatarImage);
-      });
-
-    } else {
-      alert('in')
-    }
-  }
-
-
-  deleteVideo() {
-    console.log(this.s3Url, this.file, this.folder);
-    this.awss3service.removeFile(this.file, this.folder)
-  }
-
-
-  uploadImage1(avatarImage) {
-    this.dashboardService.postUrl(this.avatarImage);
   }
 }
 

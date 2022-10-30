@@ -22,7 +22,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { FileUploadModule } from "ng2-file-upload";
 @NgModule({
   declarations: [
     ElectronicsComponent,
@@ -50,7 +49,6 @@ import { FileUploadModule } from "ng2-file-upload";
     MatFormFieldModule,
     MatInputModule,
     NgApexchartsModule,
-    FileUploadModule
   ]
 })
 export class AdminModule { }
