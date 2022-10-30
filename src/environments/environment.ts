@@ -5,15 +5,6 @@ export const environment = {
   production: true,
   apiUrl: "http://localhost:3003/api",
   imageUrl: "https://upturnhrmanagement.s3.ap-south-1.amazonaws.com/employee/men.png",
-  firebaseConfig: {
-    apiKey: "AIzaSyCXEuB-7Eaz8X-EzC736t2-COoUFmEJDTY",
-    authDomain: "tech-spot-5ea33.firebaseapp.com",
-    projectId: "tech-spot-5ea33",
-    storageBucket: "tech-spot-5ea33.appspot.com",
-    messagingSenderId: "362490894854",
-    appId: "1:362490894854:web:4e9a6b364e7f3def940187"
-  }
-
 };
 
 /*

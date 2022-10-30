@@ -47,7 +47,6 @@ import { CommonModule } from '@angular/common';
     MatSidenavModule,
     MatToolbarModule,
     NgToastModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
