@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -17,15 +17,13 @@ export class CartService {
   }
   updateCart(data, i) {
     console.log('dta', data);
-
     if (i == 1) {
       if (data.quantity < data?.maxOrderQuantity) {
-
         data.quantity++
+        data?.product?.mobilePrice * data?.quantity
       } else {
         console.log(' data.quantity', data.quantity);
         alert("You Can't Add More product")
-
       }
     } else if (i == 2) {
       if (data.quantity > 1) {
@@ -36,5 +34,12 @@ export class CartService {
       }
     }
     return this.httpClient.put(`${this.baseUrl}`, data)
+  }
+
+  getSingleCart(id) {
+    console.log('id', id);
+    const params = new HttpParams().set('_id', id)
+    return this.httpClient.get(`${this.baseUrl}/getSingleCart`, { params })
+
   }
 }

@@ -1,4 +1,4 @@
-<div id="cart" *ngIf="productList">
+<div id="cart">
     <div class="shopping-cart-section card">
         <div class="shopping-cart-title">
             <h4>Shoping Cart</h4>
@@ -8,20 +8,23 @@
                 <div class="cart-image">
                     <img [src]="item?.imageUrl" width="150" *ngIf="item?.imageUrl" alt="mobile" />
                 </div>
-                <div class="cart-description">
-                    <h3>{{item?.mobileName | titlecase}} {{'(' + item?.mobileColor + ', ' + item?.ram
-                        + ')'}}<br />
-                        {{item?.storage | titlecase}}
-                    </h3>
+                <div class="cart-items-list">
+                    <div class="cart-description">
+                        <h3>{{item?.mobileName | titlecase}} {{'(' + item?.mobileColor + ', ' + item?.ram
+                            + ')'}}<br />
+                            {{item?.storage | titlecase}}
+                        </h3>
+                    </div>
+                    <div class="addProduct">
+                        <button type="button" [disabled]="minus==true" (click)="decreaseQuantity(item)"><i
+                                class="fa fa-minus"></i></button>
+                        {{item?.quantity}}
+                        <button type="button" (click)="increaseQuantity(item)"><i class="fa fa-plus"></i></button>
+                    </div>
                 </div>
-                <div class="addProduct">
-                    <button type="button" [disabled]="minus==true" (click)="decreaseQuantity(item)"><i
-                            class="fa fa-minus"></i></button>
-                    {{item?.quantity}}
-                    <button type="button" (click)="increaseQuantity(item)"><i class="fa fa-plus"></i></button>
-                </div>
+
                 <div class="totalCartValue">
-                    <h3><i class="fa fa-inr" aria-hidden="true"></i>{{item?.product?.mobilePrice}}</h3>
+                    <h3><i class="fa fa-inr" aria-hidden="true"></i>{{item?.mobilePrice}}</h3>
                 </div>
             </div>
         </div>

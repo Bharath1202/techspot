@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LayoutService } from 'src/app/layout/service/layout.service';
 import { CartService } from 'src/app/mobiles/service/cart.service';
 import { MobileService } from 'src/app/mobiles/service/mobile.service';
 
@@ -16,7 +17,7 @@ export class CartItemsComponent implements OnInit {
   public productList = [];
   public increaseProduct: number = 1;
   public productAmount;
-  constructor(private activteRoute: ActivatedRoute, private cartService: CartService) {
+  constructor(private activteRoute: ActivatedRoute, private cartService: CartService, private layoutService: LayoutService) {
     this.activteRoute.queryParams.subscribe(res => {
       this.id = res['id'];
     })
@@ -30,18 +31,17 @@ export class CartItemsComponent implements OnInit {
   total = 0;
 
   price;
+  cartId = []
   getAllCart() {
     this.cartService.getAllCart().subscribe((res: any) => {
       console.log('getAll', res);
       this.cartMobile = res?.result
       this.cartMobile.filter(res => {
         this.productList.push(res?.product);
-        console.log('this.productList', this.productList);
         this.productLength = this.productList.length
       })
       let value = 0;
       this.cartMobile.forEach(res => {
-        console.log('cart', res);
         value += Number(res?.product?.mobilePrice) * Number(res?.quantity);
         this.subTotal = value;
       })
@@ -50,22 +50,29 @@ export class CartItemsComponent implements OnInit {
     })
   }
 
+
   subTotal = 0;
   increaseQuantity(data) {
     this.minus = false
-
-    // quantity = this.increaseProduct++ + 1;
-    // console.log(quantity);
-
-
-    // console.log(details);
     var i = 1;
-    this.cartService.updateCart(data, i);
-    this.subTotal = (data?.mobilePrice * data?.quantity)
+    console.log(data);
+
+    // let details = {
+    //   _id: data
+    // }
+    // this.cartService.getSingleCart(details).subscribe((res: any) => {
+    //   console.log('getSingle', res);
+    // })
+    // this.cartService.updateCart(data, i).subscribe((res: any) => {
+    //   console.log(res);
+    // });;
+    // this.subTotal = (data?.mobilePrice * data?.quantity)
   }
   decreaseQuantity(data) {
     var i = 2;
-    this.cartService.updateCart(data, i);
+    this.cartService.updateCart(data, i).subscribe((res: any) => {
+      console.log(res);
+    });
     // this.subTotal = (data?.mobilePrice - data?.quantity)
 
     // quantity = this.increaseProduct-- - 1;

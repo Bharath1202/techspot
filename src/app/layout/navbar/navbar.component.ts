@@ -23,10 +23,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.loginType = localStorage.getItem('loginType');
     this.currentUser = JSON.parse(localStorage.getItem('userDetail'))
-    this.layoutService.subject.subscribe((res: any) => {
+    this.layoutService.behaviourSubject.subscribe((res: any) => {
       this.counter = res;
+      console.log(res);
+
     });
-    this.getAllCart();
+    // this.getAllCart();
+
   }
   logout() {
     this.authService.logout();
@@ -34,7 +37,6 @@ export class NavbarComponent implements OnInit {
 
   getAllCart() {
     this.cartService.getAllCart().subscribe((res: any) => {
-      console.log('getAlll', res);
       this.counter = res?.result.length
     })
   }

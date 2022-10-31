@@ -9,11 +9,13 @@ export class LayoutService {
   subject: Subject<number>;
   public observable!: Observable<any>;
   public counter = 0;
+  public behaviourSubject: BehaviorSubject<number>;
   constructor(private httpCLient: HttpClient) {
     this.subject = new Subject<number>();
+    this.behaviourSubject = new BehaviorSubject(0)
   }
 
-  sendData(data: number) {
-    this.subject.next((this.counter += 1));
+  nav(length) {
+    this.behaviourSubject.next(length);
   }
 }

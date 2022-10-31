@@ -29,6 +29,16 @@ export class MobileViewComponent implements OnInit {
   ngOnInit() {
 
   }
+  cartLength;
+  getAllCart() {
+    this.cartService.getAllCart().subscribe((res: any) => {
+      this.cartLength = res?.result.length;
+      this.tonav(this.cartLength)
+    })
+  }
+  tonav(length) {
+    this.layoutService.nav(length);
+  }
 
   getSingleMobile() {
     this.mobileService.getSingleMobile(this.id).subscribe((res: any) => {
@@ -40,9 +50,6 @@ export class MobileViewComponent implements OnInit {
 
   /*** Add to Cart */
 
-  btn() {
-    this.layoutService.sendData(this.data);
-  }
   addToCart(data) {
     let details = {
       product: data?._id,
@@ -50,7 +57,7 @@ export class MobileViewComponent implements OnInit {
       quantity: this.productQuantity
     }
     this.cartService.addtoCart(details).subscribe((res: any) => {
-      console.log(res);
+      this.getAllCart();
     }, (error) => {
       console.log(error);
     })
