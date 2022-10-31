@@ -50,7 +50,13 @@
               "node_modules/@smart-webcomponents-angular/tabs/styles/smart.tabs.css",
               "node_modules/@smart-webcomponents-angular/tooltip/styles/smart.base.css",
               "node_modules/@smart-webcomponents-angular/tooltip/styles/smart.tooltip.css",
-              "node_modules/@smart-webcomponents-angular/tooltip/styles/smart.common.css"
+              "node_modules/@smart-webcomponents-angular/tooltip/styles/smart.common.css",
+              "node_modules/@smart-webcomponents-angular/checkbox/styles/smart.base.css",
+              "node_modules/@smart-webcomponents-angular/checkbox/styles/smart.checkbox.css",
+              "node_modules/@smart-webcomponents-angular/checkbox/styles/smart.common.css",
+              "node_modules/@smart-webcomponents-angular/breadcrumb/styles/smart.base.css",
+              "node_modules/@smart-webcomponents-angular/breadcrumb/styles/smart.breadcrumb.css",
+              "node_modules/@smart-webcomponents-angular/breadcrumb/styles/smart.common.css"
             ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js"

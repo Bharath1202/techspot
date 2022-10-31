@@ -1,0 +1,62 @@
+@import "../../color.scss";
+
+#ShippingAddress {
+    form {
+        padding: 1rem;
+    }
+}
+
+.groupBtn {
+    margin: 0 0 1rem 0;
+
+    .btn-rev {
+        margin: 0 1rem 0 0;
+    }
+
+    .btn-next {
+        margin: 0 1rem 0 1rem;
+    }
+}
+
+tr:nth-child(odd) {
+    background-color: $White;
+    color: $Black;
+}
+
+.order {
+    .orderPrice {
+        margin: 0 1rem 0;
+    }
+
+    #orderOffer {
+        h4 {
+            color: $Red;
+        }
+    }
+}
+
+td {
+    border: none;
+}
+
+.orderproduct {
+    button {
+        padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+        border-radius: 19px;
+        border: none;
+        margin: 0rem 1rem 0rem 1rem;
+    }
+}
+
+.order-details {
+    margin: 1.5rem 0 0 0;
+}
+
+.toprev {
+    margin: 1.5rem 0.5rem 0 0;
+    float: right;
+}
+
+.placeOrder {
+    width: 63rem;
+}

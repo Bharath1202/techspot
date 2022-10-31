@@ -26,6 +26,8 @@
           </div>
           <div class="toCart">
             <button type="button" class="btn btn-primary" (click)="addToCart(mobileList)">Add To Cart</button>
+            <button type="button" class="btn btn-success toBuy" [routerLink]="['/home/payment/checkout']"
+              [queryParams]="{id:mobileList?._id}">Buy Now</button>
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class NumberValidationDirective {
 
   private regex: RegExp = new RegExp(/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/g);
-  // private regex: RegExp = new RegExp(/^(0|[1-9][0-9]*)$/g); /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[1-9]+)$/g
   private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home', '-'];
 
   constructor(private el: ElementRef) {

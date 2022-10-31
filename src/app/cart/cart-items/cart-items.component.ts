@@ -83,5 +83,17 @@ export class CartItemsComponent implements OnInit {
     //   this.minus = false
   }
   // this.subTotal = (data?.mobilePrice * quantity)
+
+  deleteItem(i) {
+    console.log(i);
+
+    console.log(this.productList);
+    for (let i = 0; i < this.productList.length; i++) {
+      if (this.productList.indexOf(this.productList[i]) === i) {
+        this.productList.splice(i, 1);
+        break;
+      }
+    }
+    // this.cartMobile.slice(i, 1)
+  }
 }
-// }

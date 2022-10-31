@@ -31,7 +31,10 @@ const routes: Routes = [
         loadChildren: () =>
           import('./cart/cart.module').then((x) => x.CartModule),
       },
-
+      {
+        path: 'payment',
+        loadChildren: () => import('./payment/payment.module').then(x => x.PaymentModule)
+      }
       /** User Portal End */
     ],
   },
