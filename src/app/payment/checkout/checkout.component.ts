@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Country, State } from 'src/app/shared/country';
-import { Breadcrumb } from "../../../../node_modules/@smart-webcomponents-angular/breadcrumb/source/typescript/smart.elements";
-import { Payment, PaymentMethod } from '../model/payment';
+import { Payment, PaymentAddress, PaymentMethod } from '../model/payment';
 import Stepper from 'bs-stepper'
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { MobileService } from 'src/app/mobiles/service/mobile.service';
 import { CartService } from 'src/app/mobiles/service/cart.service';
+import { PaymentService } from '../service/payment.service';
+import { NgToastService } from 'ng-angular-popup';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -16,6 +17,7 @@ export class CheckoutComponent implements OnInit {
 
   public payment: Payment = new Payment();
   public paymentMethod: PaymentMethod = new PaymentMethod();
+  public paymentAddress: PaymentAddress = new PaymentAddress();
   public country = Country;
   public state = State;
   public minus = true;
@@ -24,7 +26,7 @@ export class CheckoutComponent implements OnInit {
   public expiryDate: NgbDateStruct
   public id;
   public mobile;
-  constructor(private activateRoute: ActivatedRoute, private mobileService: MobileService, private cartService: CartService) {
+  constructor(private activateRoute: ActivatedRoute, private toastr: NgToastService, private paymentService: PaymentService, private mobileService: MobileService, private cartService: CartService) {
     this.activateRoute.queryParams.subscribe(res => {
       this.id = res['id']
       if (res['id']) {
@@ -62,9 +64,28 @@ export class CheckoutComponent implements OnInit {
   }
 
 
+  paymentId;
+  /*** payment Address */
   postAdress() {
-    console.log('in');
-
+    console.log('payments', this.payment);
+    this.payment.paymentAddress = this.paymentAddress;
+    this.payment.paymentMethod = this.paymentMethod;
+    this.paymentService.savePayment(this.payment).subscribe((res: any) => {
+      console.log(res);
+      this.paymentId = res?.result?._id;
+      this.getSingleAddress();
+    }, (error) => {
+      console.log(error);
+      this.toastr.error({ detail: "Error Message", summary: error, duration: 2000 })
+    })
+  }
+  getSingleAddress() {
+    this.paymentService.getSingleAddress(this.paymentId).subscribe((res: any) => {
+      this.paymentAddress = res?.result;
+      console.log(res);
+    }, (error) => {
+      console.log(error);
+    })
   }
   value;
   cardNumber() {

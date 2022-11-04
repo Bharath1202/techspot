@@ -86,14 +86,5 @@ export class CartItemsComponent implements OnInit {
 
   deleteItem(i) {
     console.log(i);
-
-    console.log(this.productList);
-    for (let i = 0; i < this.productList.length; i++) {
-      if (this.productList.indexOf(this.productList[i]) === i) {
-        this.productList.splice(i, 1);
-        break;
-      }
-    }
-    // this.cartMobile.slice(i, 1)
   }
 }

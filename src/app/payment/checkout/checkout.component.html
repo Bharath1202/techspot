@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label>Last Name<span class="required">*</span></label>
-                                    <input type="text" placeholder="Last Name" minlength="2" maxlength="10"
+                                    <input type="text" placeholder="Last Name" minlength="1" maxlength="5"
                                         class="forms-control" [(ngModel)]="payment.lastName" name="lastName"
                                         #Lastname="ngModel"
                                         [class.error]="shipingAddressForm.submitted && !Lastname.valid" required>
@@ -53,8 +53,8 @@
                                 <div class="col-md-12 mb-2">
                                     <label>Address Line 1<span class="required">*</span></label>
                                     <textarea type="text" placeholder="Address Line 1" minlength="5" maxlength="500"
-                                        class="forms-control" [(ngModel)]="payment.addressLine1" name="addressLine1"
-                                        #AddressLine1="ngModel"
+                                        class="forms-control" [(ngModel)]="paymentAddress.addressLine1"
+                                        name="addressLine1" #AddressLine1="ngModel"
                                         [class.error]="shipingAddressForm.submitted && !AddressLine1.valid"
                                         required></textarea>
                                     <span *ngIf="shipingAddressForm.submitted && !AddressLine1.valid">
@@ -64,8 +64,8 @@
                                 <div class="col-md-12">
                                     <label>Address Line <span class="required">*</span></label>
                                     <textarea type="text" placeholder="Address Line 2" minlength="5" maxlength="500"
-                                        class="forms-control" [(ngModel)]="payment.addressLine2" name="addressLine2"
-                                        #AddressLine2="ngModel"
+                                        class="forms-control" [(ngModel)]="paymentAddress.addressLine2"
+                                        name="addressLine2" #AddressLine2="ngModel"
                                         [class.error]="shipingAddressForm.submitted && !AddressLine2.valid"
                                         required></textarea>
                                     <span *ngIf="shipingAddressForm.submitted && !AddressLine2.valid">
@@ -74,8 +74,8 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label>Country<span class="required">*</span></label>
-                                    <select placeholder="Country" class="forms-control" [(ngModel)]="payment.country"
-                                        name="country" #Country="ngModel"
+                                    <select placeholder="Country" class="forms-control"
+                                        [(ngModel)]="paymentAddress.country" name="country" #Country="ngModel"
                                         [class.error]="shipingAddressForm.submitted && !Country.valid" required>
                                         <option *ngFor="let country of country">{{country}}</option>
                                     </select>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label>State<span class="required">*</span></label>
-                                    <select placeholder="State" class="forms-control" [(ngModel)]="payment.state"
+                                    <select placeholder="State" class="forms-control" [(ngModel)]="paymentAddress.state"
                                         name="state" #State="ngModel"
                                         [class.error]="shipingAddressForm.submitted && !State.valid" required>
                                         <option *ngFor="let state of state">{{state}}</option>
@@ -97,8 +97,9 @@
                                 <div class="col-md-4  mt-3">
                                     <label>City<span class="required">*</span></label>
                                     <input type="text" placeholder="City" minlength="2" maxlength="10"
-                                        class="forms-control" [(ngModel)]="payment.city" name="city" #City="ngModel"
-                                        [class.error]="shipingAddressForm.submitted && !City.valid" required>
+                                        class="forms-control" [(ngModel)]="paymentAddress.city" name="city"
+                                        #City="ngModel" [class.error]="shipingAddressForm.submitted && !City.valid"
+                                        required>
                                     <span *ngIf="shipingAddressForm.submitted && !City.valid">
                                         <small class="form-text text-danger">City is required</small>
                                     </span>
@@ -106,7 +107,7 @@
                                 <div class="col-md-4 form-group mt-3">
                                     <label>Postal Code<span class="required">*</span></label>
                                     <input type="text" appNumberValidation placeholder="City" minlength="6"
-                                        maxlength="6" class="forms-control" [(ngModel)]="payment.postalCode"
+                                        maxlength="6" class="forms-control" [(ngModel)]="paymentAddress.postalCode"
                                         name="postalCode" #PostalCode="ngModel"
                                         [class.error]="shipingAddressForm.submitted && !PostalCode.valid" required>
                                     <span *ngIf="shipingAddressForm.submitted && !PostalCode.valid">
