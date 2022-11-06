@@ -17,4 +17,7 @@ export class PaymentService {
     const params = new HttpParams().set('_id', id);
     return this.httpClient.get(`${this.baseUrl}/getSinglePayemntAddress`, { params })
   }
+  updatePayment(data) {
+    return this.httpClient.post(`${this.baseUrl}`, data)
+  }
 }

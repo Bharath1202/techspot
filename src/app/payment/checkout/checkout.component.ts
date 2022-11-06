@@ -71,26 +71,34 @@ export class CheckoutComponent implements OnInit {
   /*** payment Address */
   savPayment() {
     console.log('payments', this.payment);
+    this.payment.paymentAddress = this.paymentAddress;
+    // this.payment.paymentMethod = this.paymentMethod;
+    this.paymentService.savePayment(this.payment).subscribe((res: any) => {
+      console.log(res);
+      this.toastr.error({ detail: "Success Message", summary: 'Save Successfully', duration: 2000 })
+      this.paymentId = res?.result?._id;
+      this.getSingleAddress();
+    }, (error) => {
+      console.log(error);
+      this.toastr.error({ detail: "Error Message", summary: error, duration: 2000 })
+    })
+  }
+
+  updatePayment() {
     if (this.expiryDate) {
       let date = new Date(this.expiryDate.year, this.expiryDate.month, this.expiryDate.day)
       this.paymentMethod.expiryDate = date
-      this.payment.paymentAddress = this.paymentAddress;
-      this.payment.paymentMethod = this.paymentMethod;
-      this.paymentService.savePayment(this.payment).subscribe((res: any) => {
-        console.log(res);
-        this.toastr.error({ detail: "Success Message", summary: 'Save Successfully', duration: 2000 })
-        this.paymentId = res?.result?._id;
-        this.getSingleAddress();
-      }, (error) => {
-        console.log(error);
-        this.toastr.error({ detail: "Error Message", summary: error, duration: 2000 })
-      })
     }
+    this.payment.paymentMethod = this.paymentMethod;
+    this.paymentService.updatePayment(this.payment).subscribe((res: any) => {
+      console.log(res);
+    }, (error) => {
+      console.log(error);
+    })
   }
   getSingleAddress() {
     this.paymentService.getSingleAddress(this.paymentId).subscribe((res: any) => {
       localStorage.setItem('userAddress', JSON.stringify(res?.result?.paymentAddress))
-      console.log(res);
     }, (error) => {
       console.log(error);
     })
