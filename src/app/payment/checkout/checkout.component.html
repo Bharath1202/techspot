@@ -30,26 +30,6 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4 form-group ">
-                                    <label>First Name<span class="required">*</span></label>
-                                    <input type="text" placeholder="First Name" minlength="2" maxlength="10"
-                                        class="forms-control" [(ngModel)]="payment.firstName" name="firstName"
-                                        #Firstname="ngModel"
-                                        [class.error]="shipingAddressForm.submitted && !Firstname.valid" required>
-                                    <span *ngIf="shipingAddressForm.submitted && !Firstname.valid">
-                                        <small class="form-text text-danger">First Name is required</small>
-                                    </span>
-                                </div>
-                                <div class="col-md-4 form-group">
-                                    <label>Last Name<span class="required">*</span></label>
-                                    <input type="text" placeholder="Last Name" minlength="1" maxlength="5"
-                                        class="forms-control" [(ngModel)]="payment.lastName" name="lastName"
-                                        #Lastname="ngModel"
-                                        [class.error]="shipingAddressForm.submitted && !Lastname.valid" required>
-                                    <span *ngIf="shipingAddressForm.submitted && !Lastname.valid">
-                                        <small class="form-text text-danger">Last Name is required</small>
-                                    </span>
-                                </div>
                                 <div class="col-md-12 mb-2">
                                     <label>Address Line 1<span class="required">*</span></label>
                                     <textarea type="text" placeholder="Address Line 1" minlength="5" maxlength="500"
@@ -106,7 +86,7 @@
                                 </div>
                                 <div class="col-md-4 form-group mt-3">
                                     <label>Postal Code<span class="required">*</span></label>
-                                    <input type="text" appNumberValidation placeholder="City" minlength="6"
+                                    <input type="text" appNumberValidation placeholder="Postal Code" minlength="6"
                                         maxlength="6" class="forms-control" [(ngModel)]="paymentAddress.postalCode"
                                         name="postalCode" #PostalCode="ngModel"
                                         [class.error]="shipingAddressForm.submitted && !PostalCode.valid" required>
@@ -124,7 +104,7 @@
                             </button>
                             <button (click)="horizontalWizardStepperNext(shipingAddressForm,'shippingForm')"
                                 class="btn btn-primary btn-next" rippleEffect>
-                                <span class=" d-sm-inline-block d-none">Next</span>
+                                <span class=" d-sm-inline-block d-none" (click)="savPayment()">Next</span>
                             </button>
                             <div>
                             </div>
@@ -171,9 +151,8 @@
                                                 (click)="basic.toggle()" required />
                                         </div>
                                         <span *ngIf="PaymentForm.submitted && TDJoinRef.invalid" class="invalid-form">
-                                            <small class="form-text text-danger" *ngIf="TDJoinRef.errors.required">This
-                                                field is
-                                                required!</small>
+                                            <small class="form-text text-danger"
+                                                *ngIf="TDJoinRef.errors.required">Please Select the Date</small>
                                         </span>
                                     </div>
                                 </div>
@@ -197,7 +176,7 @@
                             </button>
                             <button (click)="horizontalWizardStepperNext(PaymentForm,'paymentForm')"
                                 class="btn btn-primary btn-next" rippleEffect>
-                                <span class=" d-sm-inline-block d-none">Next</span>
+                                <span class=" d-sm-inline-block d-none" (click)="savPayment()">Next</span>
                             </button>
                             <div>
                             </div>

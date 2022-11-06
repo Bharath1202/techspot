@@ -8,6 +8,7 @@ import { MobileService } from 'src/app/mobiles/service/mobile.service';
 import { CartService } from 'src/app/mobiles/service/cart.service';
 import { PaymentService } from '../service/payment.service';
 import { NgToastService } from 'ng-angular-popup';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -42,6 +43,11 @@ export class CheckoutComponent implements OnInit {
     this.bsStepper = document.querySelectorAll('.bs-stepper'), {};
   }
 
+  ngAfterContentInit(): void {
+    //Called after ngOnInit when the component's or directive's content has been initialized.
+    //Add 'implements AfterContentInit' to the class.
+    this.paymentAddress = JSON.parse(localStorage.getItem('userAddress'))
+  }
   getSingleMobile() {
     this.mobileService.getSingleMobile(this.id).subscribe((res: any) => {
       this.mobile = res?.result;
@@ -51,12 +57,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   horizontalWizardStepperNext(data, status) {
-    // if (data.form.valid === true) {
-    if (status == 'shippingForm') {
-      this.postAdress();
+    if (data.form.valid === true) {
+      this.horizontalWizardStepper.next();
     }
-    this.horizontalWizardStepper.next();
-    // }
   }
 
   horizontalWizardStepperPrevious() {
@@ -66,22 +69,27 @@ export class CheckoutComponent implements OnInit {
 
   paymentId;
   /*** payment Address */
-  postAdress() {
+  savPayment() {
     console.log('payments', this.payment);
-    this.payment.paymentAddress = this.paymentAddress;
-    this.payment.paymentMethod = this.paymentMethod;
-    this.paymentService.savePayment(this.payment).subscribe((res: any) => {
-      console.log(res);
-      this.paymentId = res?.result?._id;
-      this.getSingleAddress();
-    }, (error) => {
-      console.log(error);
-      this.toastr.error({ detail: "Error Message", summary: error, duration: 2000 })
-    })
+    if (this.expiryDate) {
+      let date = new Date(this.expiryDate.year, this.expiryDate.month, this.expiryDate.day)
+      this.paymentMethod.expiryDate = date
+      this.payment.paymentAddress = this.paymentAddress;
+      this.payment.paymentMethod = this.paymentMethod;
+      this.paymentService.savePayment(this.payment).subscribe((res: any) => {
+        console.log(res);
+        this.toastr.error({ detail: "Success Message", summary: 'Save Successfully', duration: 2000 })
+        this.paymentId = res?.result?._id;
+        this.getSingleAddress();
+      }, (error) => {
+        console.log(error);
+        this.toastr.error({ detail: "Error Message", summary: error, duration: 2000 })
+      })
+    }
   }
   getSingleAddress() {
     this.paymentService.getSingleAddress(this.paymentId).subscribe((res: any) => {
-      this.paymentAddress = res?.result;
+      localStorage.setItem('userAddress', JSON.stringify(res?.result?.paymentAddress))
       console.log(res);
     }, (error) => {
       console.log(error);

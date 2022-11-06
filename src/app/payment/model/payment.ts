@@ -1,7 +1,5 @@
 export class Payment {
     _id: any;
-    firstName: string;
-    lastName: string;
     paymentAddress: PaymentAddress
     paymentMethod: PaymentMethod
 }
