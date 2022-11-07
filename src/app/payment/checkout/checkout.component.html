@@ -249,9 +249,11 @@
                                                     <div class="placeOrder">
                                                         <button type="button"
                                                             class="col-md-6 btn btn-outline-secondary">Cancel</button>
-                                                        <button type="button" class="col-md-6 btn btn-primary">Place
+                                                        <button type="button" class="col-md-6 btn btn-primary"
+                                                            (click)="placeOrder(PaymentMethodOption)">Place
                                                             your Order</button>
                                                     </div>
+
                                                 </td>
                                             </tr>
                                             <tr>
@@ -275,251 +277,17 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <smart-card id="card">
-    <h1>Checkout</h1>
-    <smart-breadcrumb id="breadcrumb" data-source='[{ "label": "Shipping address", "value": "checked" }]'
-        item-template="breadcrumbTemplate" step="1"></smart-breadcrumb>
-
-    <section id="address">
-        <form #PaymentForm="ngForm" (ngSubmit)="(PaymentForm.form.valid)">
-            <div class="row col-12">
-                <div class="col-md-4 form-group ">
-                    <label>First Name<span class="required">*</span></label>
-                    <input type="text" placeholder="First Name" minlength="2" maxlength="10" class="forms-control"
-                        [(ngModel)]="payment.firstName" name="firstName" #Firstname="ngModel"
-                        [class.error]="PaymentForm.submitted && !Firstname.valid" required>
-                    <span *ngIf="PaymentForm.submitted && !Firstname.valid">
-                        <small class="form-text text-danger">First Name is required</small>
-                    </span>
-                </div>
-                <div class="col-md-4 form-group">
-                    <label>Last Name<span class="required">*</span></label>
-                    <input type="text" placeholder="Last Name" minlength="2" maxlength="10" class="forms-control"
-                        [(ngModel)]="payment.lastName" name="lastName" #Lastname="ngModel"
-                        [class.error]="PaymentForm.submitted && !Lastname.valid" required>
-                    <span *ngIf="PaymentForm.submitted && !Lastname.valid">
-                        <small class="form-text text-danger">Last Name is required</small>
-                    </span>
-                </div>
-                <div class="col-md-12 mb-2">
-                    <label>Address Line 1<span class="required">*</span></label>
-                    <textarea type="text" placeholder="Address Line 1" minlength="5" maxlength="500"
-                        class="forms-control" [(ngModel)]="payment.addressLine1" name="addressLine1"
-                        #AddressLine1="ngModel" [class.error]="PaymentForm.submitted && !AddressLine1.valid"
-                        required></textarea>
-                    <span *ngIf="PaymentForm.submitted && !AddressLine1.valid">
-                        <small class="form-text text-danger">Address Line 1 Field is required</small>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <label>Address Line <span class="required">*</span></label>
-                    <textarea type="text" placeholder="Address Line 2" minlength="5" maxlength="500"
-                        class="forms-control" [(ngModel)]="payment.addressLine2" name="addressLine2"
-                        #AddressLine2="ngModel" [class.error]="PaymentForm.submitted && !AddressLine2.valid"
-                        required></textarea>
-                    <span *ngIf="PaymentForm.submitted && !AddressLine2.valid">
-                        <small class="form-text text-danger">Address Line 2 is required</small>
-                    </span>
-                </div>
-                <div class="col-md-4 form-group mt-3">
-                    <label>Country<span class="required">*</span></label>
-                    <select placeholder="Country" class="forms-control" [(ngModel)]="payment.country" name="country"
-                        #Country="ngModel" [class.error]="PaymentForm.submitted && !Country.valid" required>
-                        <option *ngFor="let country of country">{{country}}</option>
-                    </select>
-                    <span *ngIf="PaymentForm.submitted && !Country.valid">
-                        <small class="form-text text-danger">Country is required</small>
-                    </span>
-                </div>
-                <div class="col-md-4 form-group mt-3">
-                    <label>State<span class="required">*</span></label>
-                    <select placeholder="State" class="forms-control" [(ngModel)]="payment.state" name="state"
-                        #State="ngModel" [class.error]="PaymentForm.submitted && !State.valid" required>
-                        <option *ngFor="let state of state">{{state}}</option>
-                    </select>
-                    <span *ngIf="PaymentForm.submitted && !State.valid">
-                        <small class="form-text text-danger">State is required</small>
-                    </span>
-                </div>
-                <div class="col-md-4 form-group mt-3">
-                    <label>City<span class="required">*</span></label>
-                    <input type="text" placeholder="City" minlength="2" maxlength="10" class="forms-control"
-                        [(ngModel)]="payment.city" name="city" #City="ngModel"
-                        [class.error]="PaymentForm.submitted && !City.valid" required>
-                    <span *ngIf="PaymentForm.submitted && !City.valid">
-                        <small class="form-text text-danger">City is required</small>
-                    </span>
-                </div>
-                <div class="col-md-4 form-group mt-3">
-                    <label>Postal Code<span class="required">*</span></label>
-                    <input type="text" appNumberValidation placeholder="City" minlength="6" maxlength="6"
-                        class="forms-control" [(ngModel)]="payment.postalCode" name="postalCode" #PostalCode="ngModel"
-                        [class.error]="PaymentForm.submitted && !PostalCode.valid" required>
-                    <span *ngIf="PaymentForm.submitted && !PostalCode.valid">
-                        <small class="form-text text-danger">City is required</small>
-                    </span>
-                </div>
-            </div>
-            <smart-text-box label="First name*" id="firstName"></smart-text-box>
-            <smart-text-box label="Last name*" id="lastName"></smart-text-box>
-
-            <smart-text-box label="Address line 1*" id="address1"></smart-text-box>
-            <smart-text-box label="Address line 2" id="address2"></smart-text-box>
-
-            <smart-text-box label="City*" id="city"></smart-text-box>
-            <smart-text-box label="State/Province/Region" id="state"></smart-text-box>
-
-            <smart-text-box label="Zip / Postal code*" id="zip"></smart-text-box>
-            <smart-text-box label="Country*" id="country"></smart-text-box>
-
-            <smart-check-box enable-container-click>Use this address for payment details</smart-check-box>
-        </form>
-    </section>
-
-    <section id="details">
-        <h2>Payment method</h2>
-
-        <form>
-            <smart-text-box label="Name on card*" id="nameOnCard"></smart-text-box>
-            <smart-text-box label="Card number*" id="cardNumber"></smart-text-box>
-
-            <smart-text-box label="Expiry date*" id="expiry"></smart-text-box>
-            <smart-text-box label="CVV*" hint="Last three digits on signature strip" id="ccv"></smart-text-box>
-
-            <smart-check-box enable-container-click>Remember credit card details for next time</smart-check-box>
-        </form>
-    </section>
-
-    <section id="order">
-        <table id="orderSumary">
-            <tr>
-                <td>Product 1 A nice thing</td>
-                <td>$9.99</td>
-            </tr>
-            <tr>
-                <td>Product 2 Another thing</td>
-                <td>$3.45</td>
-            </tr>
-            <tr>
-                <td>Product 3 Something else</td>
-                <td>$6.51</td>
-            </tr>
-            <tr>
-                <td>Product 4 Best thing of all</td>
-                <td>$14.11</td>
-            </tr>
-            <tr>
-                <td>Shipping</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td id="total">$34.06</td>
-            </tr>
-        </table>
-
-        <table>
-            <tr>
-                <th>Shipping</th>
-                <th>Payment details</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>John Smith</td>
-                <td>Card type</td>
-                <td>Visa</td>
-            </tr>
-            <tr>
-                <td>1 Material-UI Drive, Reactville,</td>
-                <td>Card holder</td>
-                <td>Mr John Smith</td>
-            </tr>
-            <tr>
-                <td>Anytown, 99999, USA</td>
-                <td>Card number</td>
-                <td>xxxx-xxxx-xxxx-1234</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Expiry date</td>
-                <td>04/2024</td>
-            </tr>
-        </table>
-    </section>
-
-    <section id="sumary">
-        <h2>Thank you for your order.</h2>
-        <p>
-            Your order number is #2001539.
-            We have emailed your order confirmation,
-            and will send you an update when your order has shipped.
-        </p>
-    </section>
-
-    <div class="buttons-container">
-        <smart-button id="prev" class="flat smart-hidden">BACK</smart-button>
-        <smart-button id="next" class="primary">NEXT</smart-button>
-        <smart-button id="placeOrder" class="primary smart-hidden">PLACE ORDER</smart-button>
+<ng-template #PaymentMethodOption let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel160">Payment</h4>
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-</smart-card> -->
+</ng-template>
+
+<div class="demo d-none">
+    <google-pay-button environment="TEST" [paymentRequest]="paymentRequest"
+        (loadpaymentdata)="onLoadPaymentData($event)">
+    </google-pay-button>
+</div>

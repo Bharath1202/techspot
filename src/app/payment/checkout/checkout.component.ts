@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Country, State } from 'src/app/shared/country';
 import { Payment, PaymentAddress, PaymentMethod } from '../model/payment';
 import Stepper from 'bs-stepper'
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { MobileService } from 'src/app/mobiles/service/mobile.service';
 import { CartService } from 'src/app/mobiles/service/cart.service';
@@ -27,7 +27,7 @@ export class CheckoutComponent implements OnInit {
   public expiryDate: NgbDateStruct
   public id;
   public mobile;
-  constructor(private activateRoute: ActivatedRoute, private toastr: NgToastService, private paymentService: PaymentService, private mobileService: MobileService, private cartService: CartService) {
+  constructor(private activateRoute: ActivatedRoute, private modalService: NgbModal, private toastr: NgToastService, private paymentService: PaymentService, private mobileService: MobileService, private cartService: CartService) {
     this.activateRoute.queryParams.subscribe(res => {
       this.id = res['id']
       if (res['id']) {
@@ -36,6 +36,41 @@ export class CheckoutComponent implements OnInit {
     })
   }
 
+  paymentRequest = {
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: "CARD",
+        parameters: {
+          allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+          allowedCardNetworks: ["AMEX", "VISA", "MASTERCARD"]
+        },
+        tokenizationSpecification: {
+          type: "PAYMENT_GATEWAY",
+          parameters: {
+            gateway: "example",
+            gatewayMerchantId: "exampleGatewayMerchantId"
+          }
+        }
+      }
+    ],
+    merchantInfo: {
+      merchantId: "12345678901234567890",
+      merchantName: "Demo Merchant"
+    },
+    transactionInfo: {
+      totalPriceStatus: "FINAL",
+      totalPriceLabel: "Total",
+      totalPrice: "100.00",
+      currencyCode: "USD",
+      countryCode: "US"
+    }
+  };
+
+  onLoadPaymentData(event) {
+    console.log("load payment data", event.detail);
+  }
   ngOnInit(): void {
     this.horizontalWizardStepper = new Stepper(document.querySelector('#stepper1'), {
       linear: false,
@@ -43,10 +78,15 @@ export class CheckoutComponent implements OnInit {
     this.bsStepper = document.querySelectorAll('.bs-stepper'), {};
   }
 
+  placeOrder(PaymentMethodOption) {
+    this.modalService.open(PaymentMethodOption, {
+      centered: true
+    })
+  }
   ngAfterContentInit(): void {
     //Called after ngOnInit when the component's or directive's content has been initialized.
     //Add 'implements AfterContentInit' to the class.
-    this.paymentAddress = JSON.parse(localStorage.getItem('userAddress'))
+    // this.paymentAddress = JSON.parse(localStorage.getItem('userAddress'))
   }
   getSingleMobile() {
     this.mobileService.getSingleMobile(this.id).subscribe((res: any) => {

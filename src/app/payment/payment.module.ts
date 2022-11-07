@@ -9,6 +9,8 @@ import { ButtonModule } from '@smart-webcomponents-angular/button';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GooglePayButtonModule } from "@google-pay/button-angular";
+
 @NgModule({
   declarations: [
     CheckoutComponent
@@ -22,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     SharedModule,
     NgbModule,
+    GooglePayButtonModule
   ]
 })
 export class PaymentModule { }
