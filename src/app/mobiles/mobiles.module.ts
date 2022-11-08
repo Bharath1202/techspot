@@ -8,7 +8,6 @@ import { TreeModule } from '@smart-webcomponents-angular/tree';
 import { CardModule } from '@smart-webcomponents-angular/card';
 import { TabsModule } from '@smart-webcomponents-angular/tabs';
 import { ButtonModule } from '@smart-webcomponents-angular/button';
-import { NgxImageZoomModule } from 'ngx-image-zoom';
 @NgModule({
   declarations: [
     MobileListComponent,
@@ -21,7 +20,6 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
     CardModule,
     TabsModule,
     ButtonModule,
-    NgxImageZoomModule
   ]
 })
 export class MobilesModule { }
