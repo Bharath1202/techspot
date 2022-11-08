@@ -9,6 +9,7 @@ import { MobileService } from '../../service/mobile.service';
 })
 export class MobileListComponent implements OnInit {
   public mobileList;
+  componentName = 'name';
   constructor(private mobileService: MobileService) { }
 
   ngOnInit(): void {

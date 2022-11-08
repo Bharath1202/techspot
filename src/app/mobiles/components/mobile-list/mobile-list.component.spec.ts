@@ -8,9 +8,9 @@ describe('MobileListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MobileListComponent ]
+      declarations: [MobileListComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MobileListComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,7 @@ describe('MobileListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('testTitle', () => {
+    expect(component.componentName).toBe('name');
+  })
 });

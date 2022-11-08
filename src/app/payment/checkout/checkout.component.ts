@@ -80,7 +80,7 @@ export class CheckoutComponent implements OnInit {
 
   placeOrder(PaymentMethodOption) {
     this.modalService.open(PaymentMethodOption, {
-      centered: true
+      backdrop: true
     })
   }
   ngAfterContentInit(): void {

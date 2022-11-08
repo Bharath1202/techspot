@@ -7,14 +7,14 @@
                 <span class="bs-stepper-label">Shipping Address</span>
             </button>
         </div>
-        <div class="line"></div>
+        <!-- <div class="line"></div>
         <div class="step" data-target="#paymentMethod">
             <button type="button" class="step-trigger" role="tab" aria-controls="PaymentMethod"
                 id="PaymentMethod-trigger">
                 <span class="bs-stepper-circle">2</span>
                 <span class="bs-stepper-label">Payment method</span>
             </button>
-        </div>
+        </div> -->
         <div class="line"></div>
         <div class="step" data-target="#reviewOrder">
             <button type="button" class="step-trigger" role="tab" aria-controls="reviewOrder" id="reviewOrder-trigger">
@@ -26,7 +26,7 @@
     <div class="bs-stepper-content">
         <section id="ShippingAddress">
             <div id="shippingAddress" class="content" role="tabpanel" aria-labelledby="shippingAddress-trigger">
-                <form #shipingAddressForm="ngForm" (ngSubmit)="(PaymentForm.form.valid)">
+                <form #shipingAddressForm="ngForm" (ngSubmit)="(shipingAddressForm.form.valid)">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -113,7 +113,7 @@
                 </form>
             </div>
         </section>
-        <section id="PaymentPart">
+        <!-- <section id="PaymentPart">
             <div id="paymentMethod" class="content" role="tabpanel" aria-labelledby="paymentMethod-trigger">
                 <form #PaymentForm="ngForm" (ngSubmit)="(PaymentForm.form.valid)">
                     <div class="card">
@@ -184,7 +184,7 @@
                     </div>
                 </form>
             </div>
-        </section>
+        </section> -->
         <section id="ReviewOrder">
             <div id="reviewOrder" class="content" role="tabpanel" aria-labelledby="reviewOrder-trigger">
                 <form #ReviewForm="ngForm" (ngSubmit)="(ReviewForm.form.valid)">
@@ -280,14 +280,37 @@
 <ng-template #PaymentMethodOption let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel160">Payment</h4>
-        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+        <!-- <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-        </button>
+        </button> -->
+    </div>
+    <div class="modal-body">
+        <div class="forms-control  mb-3">
+            <div class="radiobtn">
+                <input type="radio" minlength="2" maxlength="10" id="netBank" name="gender"
+                    [(ngModel)]="employee.gender" value="netBanking" />
+                <label class="cashonDelivery" for="netBank">Net Banking</label>
+            </div>
+        </div>
+        <div>
+            <div class="forms-control mb-3">
+                <div class="radiobtn">
+                    <input type="radio" minlength="2" maxlength="10" id="COD" name="gender"
+                        [(ngModel)]="employee.gender" value="cashOnDelivery" />
+                    <label class="cashonDelivery" for="COD">Cash On Delivery</label>
+                </div>
+            </div>
+        </div>
+        <div class="continueToPay">
+            <button type="button" class="btn payitem">Continue To Pay</button>
+        </div>
     </div>
 </ng-template>
 
-<div class="demo d-none">
+
+
+<!-- <div class="demo">
     <google-pay-button environment="TEST" [paymentRequest]="paymentRequest"
         (loadpaymentdata)="onLoadPaymentData($event)">
     </google-pay-button>
-</div>
+</div> -->
